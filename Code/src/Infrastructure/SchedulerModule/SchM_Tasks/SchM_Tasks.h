@@ -3,23 +3,23 @@
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*
-* C Include:        %template.h%
+* C Include:        SchM_Tasks.h
 * Instance:         RPL_1
-* %version:         1 %
-* %created_by:      uid02495 %
-* %date_created:    Fri Feb 28 13:41:01 2003 %
+* %version:         1 
+* %created_by:      Pedro Romero Vargas 
+* %date_created:    Wed Jul 15 09:15:01 2015 
 *=============================================================================*/
-/* DESCRIPTION : Header file template                                         */
+/* DESCRIPTION : Functions that are executed in respective time               */
 /*============================================================================*/
-/* FUNCTION COMMENT : contains only symbols which are exported to internal    */
-/* platform modules. This will not be delivered with the library              */
+/* FUNCTION COMMENT : contains only functions which are called every          */
+/* certain time by the scheduler module.                                      */
 /*                                                                            */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*  REVISION |   DATE      |                               |      AUTHOR      */
 /*----------------------------------------------------------------------------*/
-/*  1.0      | DD/MM/YYYY  | SAR/SIF/SCN_xxx               | Mr. Template     */
+/*  1.0      | 15/07/2015  | SAR/SIF/SCN_xxx               | Pedro RV         */
 /* Integration under Continuus CM                                             */
 /*============================================================================*/
 
@@ -29,7 +29,7 @@
 /* Includes */
 /* -------- */
 #include "SchM_Cfg.h" 
-#include "GPIO.h"
+
 
 /* Exported types and constants */
 /* ---------------------------- */

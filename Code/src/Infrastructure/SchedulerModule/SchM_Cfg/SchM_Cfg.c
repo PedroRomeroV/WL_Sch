@@ -1,25 +1,25 @@
+
 /*============================================================================*/
-/*                        SV C CE SOFTWARE GROUP                              */
+/*                        SV C BC SOFTWARE GROUP                              */
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*
-* C Source:         %template.c%
+* C Source:         SchM_Cfg.c
 * Instance:         RPL_1
-* %version:         2 %
-* %created_by:      uid02495 %
-* %date_created:    Fri Jan  9 14:38:03 2004 %
+* %version:         1 
+* %created_by:      Pedro Romero Vargas 
+* %date_created:    Wed Jul 15 09:15:01 2015 
 *=============================================================================*/
-/* DESCRIPTION : C source template file                                       */
+/* DESCRIPTION : C  Build the table                                           */
 /*============================================================================*/
-/* FUNCTION COMMENT : This file describes the C source template according to  */
-/* the new software platform                                                  */
+/* FUNCTION COMMENT :                                                         */
 /*                                                                            */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*  REVISION |   DATE      |                               |      AUTHOR      */
 /*----------------------------------------------------------------------------*/
-/*  1.0      | DD/MM/YYYY  |                               | Mr. Template     */
+/*  1.0      | 15/07/2015  | SAR/SIF/SCN_xxx               | Pedro RV         */
 /* Integration under Continuus CM                                             */
 /*============================================================================*/
 
@@ -44,15 +44,15 @@
 
 /* LONG and STRUCTURE constants */
 
-//table es descriptor
-const SchedulerTaskTableType SchedulerTaskTableConfig []=
+
+const SchedulerTaskDescriptorType SchedulerTaskTableConfig []=
 {
-	{	0	,MASK_3P125MS	,TASK_3P125MS	,SchM_Task_3P125MS	},
-	{	1	,MASK_6P25MS	,TASK_6P25MS	,SchM_Task_6P25MS	},
-	{	2	,MASK_12P5MS	,TASK_12P5MS	,SchM_Task_12P5MS	},
-	{	3	,MASK_25MS		,TASK_25MS		,SchM_Task_25MS		},//nos saltmos el 4 por que ese offset causaria una colision checar scheduler exell
-	{	5	,MASK_50MS		,TASK_50MS		,SchM_Task_50MS		},
-	{	6	,MASK_100MS		,TASK_100MS		,SchM_Task_100MS	}  //scheduler_100mstask
+	{	SCHM_OFFSET_3P125MS	,SCHM_MASK_3P125MS	,SCHM_TASKID_3P125MS	,SchM_Task_3P125MS	},
+	{	SCHM_OFFSET_6P25MS	,SCHM_MASK_6P25MS	,SCHM_TASKID_6P25MS	,SchM_Task_6P25MS		},
+	{	SCHM_OFFSET_12P5MS	,SCHM_MASK_12P5MS	,SCHM_TASKID_12P5MS	,SchM_Task_12P5MS		},
+	{	SCHM_OFFSET_25MSS	,SCHM_MASK_25MS		,SCHM_TASKID_25MS		,SchM_Task_25MS		},
+	{	SCHM_OFFSET_50MS	,SCHM_MASK_50MS		,SCHM_TASKID_50MS		,SchM_Task_50MS		},
+	{	SCHM_OFFSET_100MS	,SCHM_MASK_100MS	,SCHM_TASKID_100MS		,SchM_Task_100MS	} 
 
 };
 

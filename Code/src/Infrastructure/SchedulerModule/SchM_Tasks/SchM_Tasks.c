@@ -1,32 +1,33 @@
+
 /*============================================================================*/
-/*                        SV C CE SOFTWARE GROUP                              */
+/*                        SV C BC SOFTWARE GROUP                              */
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*
-* C Source:         %template.c%
+* C Source:         SchM_Tasks.c
 * Instance:         RPL_1
-* %version:         2 %
-* %created_by:      uid02495 %
-* %date_created:    Fri Jan  9 14:38:03 2004 %
+* %version:         1 
+* %created_by:      Pedro Romero Vargas 
+* %date_created:    Wed Jul 15 09:15:01 2015 
 *=============================================================================*/
-/* DESCRIPTION : C source template file                                       */
+/* DESCRIPTION : C  Functions that are executed in respective time            */
 /*============================================================================*/
-/* FUNCTION COMMENT : This file describes the C source template according to  */
-/* the new software platform                                                  */
+/* FUNCTION COMMENT : contains only functions which are called every          */
+/* certain time by the scheduler module.                                      */
 /*                                                                            */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*  REVISION |   DATE      |                               |      AUTHOR      */
 /*----------------------------------------------------------------------------*/
-/*  1.0      | DD/MM/YYYY  |                               | Mr. Template     */
+/*  1.0      | 15/07/2015  | SAR/SIF/SCN_xxx               | Pedro RV         */
 /* Integration under Continuus CM                                             */
 /*============================================================================*/
 
 /* Includes */
 /* -------- */
 #include "SchM_Tasks.h"
-
+#include "GPIO.h"
 /* Functions macros, constants, types and datas         */
 /* ---------------------------------------------------- */
 /* Functions macros */
@@ -84,14 +85,81 @@
 
 /* Private functions */
 /* ----------------- */
-/**************************************************************
- *  Name                 : private_func
- *  Description          :
- *  Parameters           :  [Input, Output, Input / output]
- *  Return               :
- *  Critical/explanation :    [yes / No]
- **************************************************************/
 
+
+/**************************************************************
+ *  Name                 : SchM_Task_3P125MS
+ *  Description          : Called every 3.125ms
+ *  Parameters           :  void
+ *  Return               :	void
+ *  Critical/explanation :    [No]
+ **************************************************************/
+void SchM_Task_3P125MS(void)
+{
+  	LED_TOGGLE(LED4);
+}
+
+/**************************************************************
+ *  Name                 : SchM_Task_6P25MS
+ *  Description          : Called every 6.25ms
+ *  Parameters           :  void
+ *  Return               :	void
+ *  Critical/explanation :    [No]
+ **************************************************************/
+ void SchM_Task_6P25MS(void)
+{
+	LED_TOGGLE(LED3);
+}
+
+/**************************************************************
+ *  Name                 : SchM_Task_12P5MS
+ *  Description          : Called every 12.5ms
+ *  Parameters           :  void
+ *  Return               :	void
+ *  Critical/explanation :    [No]
+ **************************************************************/
+ void SchM_Task_12P5MS(void)
+{
+	LED_TOGGLE(LED1);
+	
+}
+
+/**************************************************************
+ *  Name                 : SchM_Task_25MS
+ *  Description          : Called every 25ms
+ *  Parameters           :  void
+ *  Return               :	void
+ *  Critical/explanation :    [No]
+ **************************************************************/
+void SchM_Task_25MS(void)
+{
+		LED_TOGGLE(LED2);
+}
+
+/**************************************************************
+ *  Name                 : SchM_Task_50MS
+ *  Description          : Called every 50ms
+ *  Parameters           :  void
+ *  Return               :	void
+ *  Critical/explanation :    [No]
+ **************************************************************/
+ void SchM_Task_50MS(void)
+{
+		
+}
+
+/**************************************************************
+ *  Name                 : SchM_Task_100MS
+ *  Description          : Called every 100ms
+ *  Parameters           :  void
+ *  Return               :	void
+ *  Critical/explanation :    [No]
+ **************************************************************/
+ void SchM_Task_100MS(void)
+{
+
+}
+ 
 
 /* Exported functions */
 /* ------------------ */
@@ -103,37 +171,9 @@
  *  Critical/explanation :    [yes / No]
  **************************************************************/
 
-void SchM_Task_3P125MS(void)
-{
-  	;
-}
-void SchM_Task_6P25MS(void)
-{
-	
-}
-void SchM_Task_12P5MS(void)
-{
-	LED_TOGGLE(LED1);
-	
-}
-void SchM_Task_25MS(void)
-{
-		LED_TOGGLE(LED2);
-}
-void SchM_Task_50MS(void)
-{
-		LED_TOGGLE(LED3);
-}
-void SchM_Task_100MS(void)
-{
-static int i=0;
-	i++;
-		if(i==10)
-		{
-				LED_TOGGLE(LED4);
-				i=0;
-		}
-	
-	
-}
+
+
+
+
+
 
