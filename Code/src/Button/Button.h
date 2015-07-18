@@ -23,12 +23,11 @@
 /* Integration under Continuus CM                                             */
 /*============================================================================*/
 
-#ifndef LEDS_H                               /* To avoid double inclusion */
-#define LEDS_H
+#ifndef BUTTON_H                               /* To avoid double inclusion */
+#define BUTTON_H
 
 /* Includes */
 /* -------- */
-
 #include "typedefs.h"
 
 /* Exported types and constants */
@@ -56,24 +55,19 @@
 /*======================================================*/ 
 /* BYTES */
 
-//#define LED1      					68
 
 /* WORDS */
 
 
-typedef T_UBYTE LedType; 
-
-
-void LED_Init(LedType * Led);
-inline void Leds_ON(LedType * Led);
-inline void Leds_OFF(LedType * Led);
-inline void Leds_Toggle(LedType * Led);
-inline T_UBYTE Leds_GetLEDStatus(LedType * Led);
-
-
-
-
 /* LONGS and STRUCTURES */
+
+
+typedef T_UBYTE ButtonType; 
+
+
+void Button_Init(ButtonType * Button);
+inline T_UBYTE Leds_GetButtonStatus(ButtonType * Button);
+
 
 
 /*======================================================*/ 

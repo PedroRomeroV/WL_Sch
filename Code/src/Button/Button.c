@@ -25,8 +25,10 @@
 
 /* Includes */
 /* -------- */
-#include "Leds.h"
+
+#include "Button.h"
 #include "GPIO.h"
+
 /* Functions macros, constants, types and datas         */
 /* ---------------------------------------------------- */
 /* Functions macros */
@@ -76,8 +78,7 @@
 /**************************************************************
  *  Name                 : inline_func	2
  *  Description          :
- *  Paramet
- ers           :  [Input, Output, Input / output]
+ *  Parameters           :  [Input, Output, Input / output]
  *  Return               :
  *  Critical/explanation :    [yes / No]
  **************************************************************/
@@ -104,34 +105,17 @@
  *  Critical/explanation :    [yes / No]
  **************************************************************/
 
-void LED_Init( LedType * Led )
+void Button_Init( ButtonType * Button )
 {
-    /* Data Port A initialization */
-	GPIO_InitChannel(*Led,GPIO_OUTPUT,GPIO_OPEN_DRAIN_ENABLE);  
-	GPIO_Output (*Led, 1);	
+    /* Data Port A initialization */ 
+	GPIO_InitChannel(*Button,GPIO_INPUT,GPIO_OPEN_DRAIN_DISABLE);  
+	GPIO_Output (*Button, 1);	
 }
 
 
 
-void Leds_ON(LedType* Led)
+T_UBYTE Leds_GetButtonStatus(ButtonType* Button)
 {
-GPIO_SetHigh(*Led);
+return GPIO_GetStatus(*Button);
 }
-
-void Leds_OFF(LedType* Led)
-{
-GPIO_SetLow(*Led);
-}
-
-void Leds_Toggle(LedType* Led)
-{
-GPIO_SetInvert(*Led);
-}
-
-
-T_UBYTE Leds_GetLEDStatus(LedType* Led)
-{
-return GPIO_GetStatus(*Led);
-}
-
 
