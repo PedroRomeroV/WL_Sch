@@ -67,7 +67,7 @@ int main(void)
 
 MemAllocInit(&MemAllocConfig);
 
-	vfnGPIO_LED_Init();	
+//	vfnGPIO_LED_Init();	
 	/*Initialize Interrupts */
 	INTC_InitINTCInterrupts();
 	/*Initialize Exception Handlers */

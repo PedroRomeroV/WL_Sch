@@ -60,7 +60,7 @@
 * \return   void
 */
 
-void vfnGPIO_Init_channel(uint8_t channel, uint8_t input_output, uint8_t Open_drain)
+void GPIO_InitChannel(T_UBYTE channel, T_UBYTE input_output, T_UBYTE Open_drain)
 {
     if (input_output == GPIO_OUTPUT)
     {
@@ -92,7 +92,7 @@ void vfnGPIO_Init_channel(uint8_t channel, uint8_t input_output, uint8_t Open_dr
 * \param    uint8_t Open_drain - Push pull or open drain selection modes 
 * \return   void
 */
-void vfnGPIO_Output(uint8_t channel, uint8_t logical_value)
+void GPIO_Output(uint8_t channel, uint8_t logical_value)
 {
     SIU.GPDO[channel].B.PDO  = logical_value;  		/* Drive the logical output value to the pin */
 
@@ -100,71 +100,25 @@ void vfnGPIO_Output(uint8_t channel, uint8_t logical_value)
 
 
 
-/****************************************************************************************************/
-/**
-* \brief    Turn a combination of 3 LEDs with a unique blinking pattern, this funcation shall be 
-* \brief    called periodically to operate. 
-* \author   Abraham Tezmol
-* \param    void
-* \return   void
-*/
-void vfnGPIO_FlashMainLED(void)
+
+inline void GPIO_SetHigh(T_UBYTE channel)
 {
-    static uint8_t u8Counter = 0;
-    
-    u8Counter++;
-    switch (u8Counter)
-    {
-    case  1:
-            LED_ON(LED1);
-            LED_ON(LED2);
-            break;
-    case  11:
-            LED_ON(LED3);
-            LED_ON(LED4);                     
-            break;
-    case  21:
-            LED_ON(LED2);
-            LED_ON(LED3);                     
-            break;        
-    case  3:
-            LED_OFF(LED1);
-            LED_OFF(LED2);
-            break;
-    case  13:
-            LED_OFF(LED3);
-            LED_OFF(LED4);
-            break;                          
-    case  23:
-            LED_OFF(LED2);
-            LED_OFF(LED3);
-            break;        
-	case 100:
-		u8Counter = 0;
-		break;
-    }
+	SIU.GPDO[channel].B.PDO =  0;		
+}
+
+inline void GPIO_SetLow(T_UBYTE channel)
+{
+	SIU.GPDO[channel].B.PDO =  1;		
+}
+
+inline void GPIO_SetInvert(T_UBYTE channel)
+{
+	SIU.GPDO[channel].B.PDO ^=  1;		
+}
+
+inline T_UBYTE GPIO_GetStatus(T_UBYTE channel)
+{
+	return SIU.GPDO[channel].B.PDO;		
 }
 
 
-/****************************************************************************************************/
-/**
-* \brief    Initialize GPIO port connected to LEDs on eval board
-* \author   Abraham Tezmol
-* \param    void 
-* \return   void
-*/
-void vfnGPIO_LED_Init(void)
-{
-    /* Data Port A initialization */
-	vfnGPIO_Init_channel(LED1,GPIO_OUTPUT,GPIO_OPEN_DRAIN_ENABLE);  /* PE4 --> LED1*/
-	vfnGPIO_Output (LED1, 1);
-	vfnGPIO_Init_channel(LED2,GPIO_OUTPUT,GPIO_OPEN_DRAIN_ENABLE);  /* PE5 --> LED2*/
-	vfnGPIO_Output (LED2, 1);
-	vfnGPIO_Init_channel(LED3,GPIO_OUTPUT,GPIO_OPEN_DRAIN_ENABLE);  /* PE6 --> LED3*/
-	vfnGPIO_Output (LED3, 1);
-	vfnGPIO_Init_channel(LED4,GPIO_OUTPUT,GPIO_OPEN_DRAIN_ENABLE);  /* PE7 --> LED4*/
-	vfnGPIO_Output (LED4, 1);
-	
-}
-
-/****************************************************************************************************/

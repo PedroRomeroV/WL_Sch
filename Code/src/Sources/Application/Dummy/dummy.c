@@ -58,14 +58,14 @@
 */
 void Test(void)
 {
-    static T_UWORD rub_U16Counter = 0;
+ //   static T_UWORD rub_U16Counter = 0;
     
-    rub_U16Counter++;
+ //   rub_U16Counter++;
     
-    if (rub_U16Counter == 1000)
-    {
-    	LED_TOGGLE(LED1);
-    	rub_U16Counter = 0;	
-    }
+ //   if (rub_U16Counter == 1000)
+ //   {
+   // 	LED_TOGGLE(LED1);
+   // 	rub_U16Counter = 0;	
+  //  }
 
 }
