@@ -108,14 +108,14 @@
 void Button_Init( ButtonType * Button )
 {
     /* Data Port A initialization */ 
-	GPIO_InitChannel(*Button,GPIO_INPUT,GPIO_OPEN_DRAIN_DISABLE);  
-	GPIO_Output (*Button, 1);	
+	GPIO_InitChannel(Button->ButtonID,GPIO_INPUT,GPIO_OPEN_DRAIN_DISABLE);  
+	GPIO_Output (Button->ButtonID, 1);	
 }
 
 
 
 T_UBYTE Button_GetButtonStatus(ButtonType* Button)
 {
-return GPIO_GetStatus(*Button);
+return GPIO_GetStatus(Button->ButtonID);
 }
 

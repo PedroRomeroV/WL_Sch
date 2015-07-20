@@ -83,6 +83,18 @@
 
 #define SIZELEDBAR   10
 
+typedef enum
+{
+	STATE_UP,
+	STATE_DOWN,
+	STATE_IDLE,
+	STATE_UP_AUTO,
+	STATE_UP_MANUAL,
+	STATE_DOWN_AUTO,
+	STATE_DOWN_MANUAL,
+	STATE_ANTIPINCH
+}STATES_WL;
+
 typedef  enum 
 {
 	LED0 = 34,
@@ -121,6 +133,7 @@ void Indicator_Init(Indicatortype *MyIndicator);
 void Indicator_SetUP(Indicatortype *MyIndicator);
 void Indicator_SetDOWN(Indicatortype *MyIndicator);
 void IndicatorI_SetIDLE(Indicatortype *MyIndicator);
+T_UBYTE Indicator_GetStatus(Indicatortype *MyIndicator);
 void LEDBar_Init(BarType *MyBar);
 void LEDBar_UP_ONE(BarType *MyBar);
 void LEDBar_DOWN_ONE(BarType *MyBar);

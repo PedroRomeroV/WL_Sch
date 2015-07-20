@@ -36,6 +36,10 @@
 /* Types definition */
 /* typedef */
 
+#define BUTTON_UP			56
+#define BUTTON_DOWN			47
+#define BUTTON_ANTIPINCH	45
+
 
 /*==================================================*/ 
 /* Declaration of exported constants                */
@@ -62,7 +66,11 @@
 /* LONGS and STRUCTURES */
 
 
-typedef T_UBYTE ButtonType; 
+typedef struct
+{
+	T_UBYTE ButtonID;
+	T_UBYTE ButtonTimeHigh;
+}ButtonType; 
 
 
 void Button_Init(ButtonType * Button);

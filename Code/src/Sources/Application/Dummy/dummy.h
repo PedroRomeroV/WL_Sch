@@ -30,7 +30,7 @@
 /*-- Function Prototypes -----------------------------------------------------*/
 
 void Init_WL(void);
-
+void Read(void);
 
 #endif /* _DUMMY_H */
 

@@ -131,7 +131,10 @@ Leds_OFF(&MyIndicator->LedUP);
 Leds_OFF(&MyIndicator->LedDOWN);
 }
 
-
+T_UBYTE Indicator_GetStatus(Indicatortype *MyIndicator)
+{
+	return 0;
+}
 	
 
  
