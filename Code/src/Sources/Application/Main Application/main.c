@@ -3,11 +3,14 @@
 
 
 /** GPIO funtion prototypes  */
-#include    "GPIO.h"
+//#include    "GPIO.h"
 #include    "PIT.h"
 #include    "dummy.h"
 #include "SchM.h"
 #include "MemAlloc_Cfg.h"
+#include "Leds.h"
+
+
 
 /*****************************************************************************************************
 * Definition of module wide VARIABLEs 
@@ -59,7 +62,6 @@ int main(void)
 
 {
 
-
 	initModesAndClock();
 	/* Disable Watchdog */
 	disableWatchdog();
@@ -82,6 +84,8 @@ MemAllocInit(&MemAllocConfig);
     
 	/* Infinite loop */
 	
+
+
 	
 	SchM_Init(&SchedulerConfig);
     SchM_Start();

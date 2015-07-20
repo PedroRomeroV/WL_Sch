@@ -16,7 +16,9 @@
 /** Core modules */
 /** Variable types and common definitions */
 
-#include "typedefs.h"
+#include "Components.h"
+#include "Button.h"
+
 
 /*-- Variables ---------------------------------------------------------------*/
 
@@ -27,7 +29,7 @@
 
 /*-- Function Prototypes -----------------------------------------------------*/
 
-void Test(void);
+void Init_WL(void);
 
 
 #endif /* _DUMMY_H */

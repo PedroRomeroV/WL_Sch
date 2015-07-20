@@ -101,7 +101,7 @@ Link map of __start
     3] .ivor_branch_table (section,local) found in ivor_branch_table.o 
     3] .ivor_branch_table.24 (notype,local) found in ivor_branch_table.o 
     3] .text (section,local) found in main.o 
-    3] .text.62 (notype,local) found in main.o 
+    3] .text.68 (notype,local) found in main.o 
     3] .text (section,local) found in pll.o 
     3] .text.23 (notype,local) found in pll.o 
     3] .text (section,local) found in PIT.o 
@@ -212,7 +212,7 @@ Link map of __start
   00000172 000004 00002172 000009e2  2 Function1 	main.o 
   00000176 00003c 00002176 000009e6  2 main 	main.o 
   000001b2 00004a 000021b2 00000a22  2 BackgroundSubsystemTasks 	main.o 
-  000001fc 000000 000021fc 00000a6c  1 .text.62 	main.o 
+  000001fc 000000 000021fc 00000a6c  1 .text.68 	main.o 
   000001fc 000088 000021fc 00000a6c  1 .text 	pll.o 
   000001fc 000088 000021fc 00000a6c  2 initModesAndClock 	pll.o 
   UNUSED   00000c ........ ........    initPeriClkGen pll.o 
@@ -586,12 +586,12 @@ Memory map:
                .sdata2 40001378 00000010 00001010 00002810 00002810        162
                 .sbss2 40001388 00000000 00001020 00002820 00002820          0
                   .bss 40001388 0000003c 00001020 00002820 00002820          0
-      .PPC.EMB.apuinfo 00008700 00000000 00009720 0000af20 0000af20          0
+      .PPC.EMB.apuinfo 0000879c 00000000 000097c0 0000afbc 0000afbc          0
          .debug_abbrev          00000197 00001020
            .debug_info          000027fe 000011b7
-           .debug_line          00003ecf 000039b5
-            .debug_loc          00000603 00007884
-       .debug_pubnames          000006ab 00007e87
+           .debug_line          00003f6a 000039b5
+            .debug_loc          00000603 0000791f
+       .debug_pubnames          000006ab 00007f22
 
 
 Linker generated symbols:

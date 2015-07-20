@@ -23,12 +23,14 @@
 /* Integration under Continuus CM                                             */
 /*============================================================================*/
 
-#ifndef BUTTON_H                               /* To avoid double inclusion */
-#define BUTTON_H
+#ifndef COMPONENTS_H                               /* To avoid double inclusion */
+#define COMPONENTS_H
 
 /* Includes */
 /* -------- */
-#include "typedefs.h"
+
+
+ #include "Leds.h"  
 
 /* Exported types and constants */
 /* ---------------------------- */
@@ -62,14 +64,6 @@
 /* LONGS and STRUCTURES */
 
 
-typedef T_UBYTE ButtonType; 
-
-
-void Button_Init(ButtonType * Button);
-inline T_UBYTE Button_GetButtonStatus(ButtonType * Button);
-
-
-
 /*======================================================*/ 
 /* close variable declaration sections                  */
 /*======================================================*/ 
@@ -84,6 +78,54 @@ inline T_UBYTE Button_GetButtonStatus(ButtonType * Button);
 
 
 /* Exported defines */
+
+
+
+#define SIZELEDBAR   10
+
+typedef  enum 
+{
+	LED0 = 34,
+	LED1 = 35,
+	LED2 = 36,
+	LED3 = 37,
+	LED4 = 38,
+	LED5 = 39,
+	LED6 = 40,
+	LED7 = 41,
+	LED8 = 42,
+	LED9 = 44,
+	LED_BLUE = 46,
+	LED_GREEN = 47
+}LEDBAR;
+
+
+typedef struct
+{
+	LedType LedUP;
+	LedType LedDOWN;
+}Indicatortype;
+
+
+typedef struct
+{
+LedType Leds[SIZELEDBAR];
+T_UBYTE Position;
+T_UBYTE speed;
+}BarType;
+
+
+
+
+void Indicator_Init(Indicatortype *MyIndicator);
+void Indicator_SetUP(Indicatortype *MyIndicator);
+void Indicator_SetDOWN(Indicatortype *MyIndicator);
+void IndicatorI_SetIDLE(Indicatortype *MyIndicator);
+void LEDBar_Init(BarType *MyBar);
+void LEDBar_UP_ONE(BarType *MyBar);
+void LEDBar_DOWN_ONE(BarType *MyBar);
+void LEDBar_UP_ALL();
+void LEDBar_DOWN_ALL();
 
 
 #endif

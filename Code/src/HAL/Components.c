@@ -25,10 +25,7 @@
 
 /* Includes */
 /* -------- */
-
-#include "Button.h"
-#include "GPIO.h"
-
+ #include "Components.h"
 /* Functions macros, constants, types and datas         */
 /* ---------------------------------------------------- */
 /* Functions macros */
@@ -105,17 +102,66 @@
  *  Critical/explanation :    [yes / No]
  **************************************************************/
 
-void Button_Init( ButtonType * Button )
+
+
+
+
+
+
+
+
+void Indicator_Init(Indicatortype *MyIndicator)
 {
-    /* Data Port A initialization */ 
-	GPIO_InitChannel(*Button,GPIO_INPUT,GPIO_OPEN_DRAIN_DISABLE);  
-	GPIO_Output (*Button, 1);	
+	MyIndicator->LedUP=LED_GREEN;
+	MyIndicator->LedDOWN=LED_BLUE;
+}
+void Indicator_SetUP(Indicatortype *MyIndicator)
+{
+Leds_ON(&MyIndicator->LedUP);
+Leds_OFF(&MyIndicator->LedDOWN);
+}
+void Indicator_SetDOWN(Indicatortype *MyIndicator)
+{
+Leds_OFF(&MyIndicator->LedUP);
+Leds_ON(&MyIndicator->LedDOWN);	
+}
+void IndicatorI_SetIDLE(Indicatortype *MyIndicator)
+{
+Leds_OFF(&MyIndicator->LedUP);
+Leds_OFF(&MyIndicator->LedDOWN);
 }
 
 
+	
 
-T_UBYTE Button_GetButtonStatus(ButtonType* Button)
+ 
+void LEDBar_Init(BarType *MyBar)
 {
-return GPIO_GetStatus(*Button);
+BarType MyBar2 = 
+{ 
+{LED0,LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8,LED9},
+ 0, 400 
+ };
+*MyBar=MyBar2;
 }
+void LEDBar_UP_ONE(BarType *MyBar)
+{
+Leds_ON(&MyBar->Leds[MyBar->Position] );
+MyBar->Position++;
+}
+void LEDBar_DOWN_ONE(BarType *MyBar)
+{
+MyBar->Position--;
+Leds_OFF(&MyBar->Leds[MyBar->Position] );
+}
+void LEDBar_UP_ALL()
+{
+	
+}
+void LEDBar_DOWN_ALL()
+{
+	
+}
+
+
 

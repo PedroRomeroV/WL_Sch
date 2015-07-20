@@ -14,13 +14,13 @@
 
 /** Core modules */
 /** Variable types and common definitions */
-#include "typedefs.h"
+//#include "typedefs.h"
 
 /** Own headers */
 #include "dummy.h"
 
 /* GPIO routines prototypes */ 
-#include "GPIO.h"
+//#include "GPIO.h"
 
 /** Used modules */
 
@@ -56,16 +56,19 @@
 * \author   Francisco Martinez
 * \return   void
 */
-void Test(void)
-{
- //   static T_UWORD rub_U16Counter = 0;
-    
- //   rub_U16Counter++;
-    
- //   if (rub_U16Counter == 1000)
- //   {
-   // 	LED_TOGGLE(LED1);
-   // 	rub_U16Counter = 0;	
-  //  }
 
+
+ButtonType MyButtonUP;
+ButtonType MyButtonDOWN;
+ButtonType MyButtonANTIPINCH;
+BarType MyBar_WL;
+Indicatortype MyIndicator; 
+
+void Init_WL(void)
+{
+Button_Init(&MyButtonUP);
+Button_Init(&MyButtonDOWN);
+Button_Init(&MyButtonANTIPINCH);
+LEDBar_Init(&MyBar_WL);
+Indicator_Init(&MyIndicator);
 }
