@@ -147,11 +147,13 @@ BarType MyBar2 =
  };
 *MyBar=MyBar2;
 }
+
 void LEDBar_UP_ONE(BarType *MyBar)
 {
-Leds_ON(&MyBar->Leds[MyBar->Position] );
-MyBar->Position++;
+	Leds_ON(&MyBar->Leds[MyBar->Position] );
+	MyBar->Position++;
 }
+
 void LEDBar_DOWN_ONE(BarType *MyBar)
 {
 MyBar->Position--;

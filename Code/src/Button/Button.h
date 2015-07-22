@@ -69,7 +69,7 @@
 typedef struct
 {
 	T_UBYTE ButtonID;
-	T_UBYTE ButtonTimeHigh;
+	T_UWORD ButtonTimeHigh;
 }ButtonType; 
 
 
