@@ -27,7 +27,7 @@
 /* Includes */
 /* -------- */
 #include "SchM_Tasks.h"
-#include "GPIO.h"
+
 /* Functions macros, constants, types and datas         */
 /* ---------------------------------------------------- */
 /* Functions macros */
@@ -96,7 +96,9 @@
  **************************************************************/
 void SchM_Task_3P125MS(void)
 {
-  
+
+
+
 }
 
 /**************************************************************
@@ -109,9 +111,10 @@ void SchM_Task_3P125MS(void)
  void SchM_Task_6P25MS(void)
 {
 
+
 }
 
-/**************************************************************
+/*************************************************************
  *  Name                 : SchM_Task_12P5MS
  *  Description          : Called every 12.5ms
  *  Parameters           :  void
@@ -158,6 +161,7 @@ void SchM_Task_25MS(void)
  void SchM_Task_100MS(void)
 {
 
+test();
 }
  
 

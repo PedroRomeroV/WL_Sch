@@ -16,8 +16,9 @@
 /** Core modules */
 /** Variable types and common definitions */
 
-#include "Components.h"
 #include "Button.h"
+#include "Components.h"
+
 
 
 /*-- Variables ---------------------------------------------------------------*/
@@ -40,9 +41,23 @@
 #define DELAY_TIME                          1000
 
 
+typedef enum
+{
+	STATE_IDLE,
+	STATE_UP_AUTO,
+	STATE_UP_MANUAL,
+	STATE_DOWN_AUTO,
+	STATE_DOWN_MANUAL,
+	STATE_ANTIPINCH,
+	STATE_BLOCK
+}STATES_WL;
+
 
 void Init_WL(void);
-void Read(void);
+extern void Read_o(void);
+void validation(void);
+void State_Mnager(void);
+extern void Response_o(void);
 void WL_StateFCN_AutoDOWN(void);
 void WL_StateFCN_AutoUP(void);
 void WL_StateFCN_ManualDOWN(void);
@@ -50,7 +65,7 @@ void WL_StateFCN_ManualUP(void);
 void WL_StateFCN_Antipinch(void);
 void WL_StateFCN_IDLE(void);
 void WL_StateFCN_Block(void);
-
+void test(void);
 
 #endif /* _DUMMY_H */
 

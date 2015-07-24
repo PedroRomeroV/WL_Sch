@@ -101,24 +101,28 @@ void GPIO_Output(uint8_t channel, uint8_t logical_value)
 
 
 
-inline void GPIO_SetHigh(T_UBYTE channel)
-{
-	SIU.GPDO[channel].B.PDO =  0;		
-}
-
-inline void GPIO_SetLow(T_UBYTE channel)
+ void GPIO_SetHigh(T_UBYTE channel)
 {
 	SIU.GPDO[channel].B.PDO =  1;		
 }
 
-inline void GPIO_SetInvert(T_UBYTE channel)
+ void GPIO_SetLow(T_UBYTE channel)
+{
+	SIU.GPDO[channel].B.PDO =  0;		
+}
+
+ void GPIO_SetInvert(T_UBYTE channel)
 {
 	SIU.GPDO[channel].B.PDO ^=  1;		
 }
 
-inline T_UBYTE GPIO_GetStatus(T_UBYTE channel)
+T_UBYTE GPIO_GetStatusOutput(T_UBYTE channel)
 {
 	return SIU.GPDO[channel].B.PDO;		
 }
 
 
+T_UBYTE GPIO_GetStatusInput(T_UBYTE channel)
+{
+	return !SIU.GPDI[channel].R;		
+}

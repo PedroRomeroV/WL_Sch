@@ -107,14 +107,14 @@
 
 
 
-
-
+extern const  LedType  LED_BAR[SIZELEDBAR]={LED0,LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8,LED9};
 
 void Indicator_Init(Indicatortype *MyIndicator)
 {
 	MyIndicator->LedUP=LED_GREEN;
 	MyIndicator->LedDOWN=LED_BLUE;
 }
+
 void Indicator_SetUP(Indicatortype *MyIndicator)
 {
 Leds_ON(&MyIndicator->LedUP);
@@ -140,12 +140,13 @@ T_UBYTE Indicator_GetStatus(Indicatortype *MyIndicator)
  
 void LEDBar_Init(BarType *MyBar)
 {
-BarType MyBar2 = 
-{ 
-{LED0,LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8,LED9},
- 0, 400 
- };
-*MyBar=MyBar2;
+
+T_UBYTE pos=0;
+for(pos=0;pos<SIZELEDBAR;pos++)
+{
+	LED_Init(&MyBar->Leds[pos],LED_BAR[pos]);
+}
+MyBar->Position=0;
 }
 
 void LEDBar_UP_ONE(BarType *MyBar)

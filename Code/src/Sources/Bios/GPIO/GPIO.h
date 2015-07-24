@@ -53,11 +53,13 @@
 /*-- Function Prototypes -----------------------------------------------------*/
 
 void GPIO_InitChannel(uint8_t channel, uint8_t input_output, uint8_t Open_drain);
+
 void GPIO_Output(uint8_t channel, uint8_t logical_value);
-void GPIO_SetHigh(T_UBYTE channel);
-void GPIO_SetLow(T_UBYTE channel);
-void GPIO_SetInvert(T_UBYTE channel);
-T_UBYTE GPIO_GetStatus(T_UBYTE channel);
+extern void GPIO_SetHigh(T_UBYTE channel);
+extern void GPIO_SetLow(T_UBYTE channel);
+extern void GPIO_SetInvert(T_UBYTE channel);
+extern T_UBYTE GPIO_GetStatusInput(T_UBYTE channel);
+extern T_UBYTE GPIO_GetStatusOutput(T_UBYTE channel);
 
 
 

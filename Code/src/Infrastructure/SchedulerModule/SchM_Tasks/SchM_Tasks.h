@@ -29,6 +29,7 @@
 /* Includes */
 /* -------- */
 #include "SchM_Cfg.h" 
+#include "dummy.h"
 
 
 /* Exported types and constants */

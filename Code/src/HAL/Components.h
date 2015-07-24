@@ -82,19 +82,10 @@
 
 
 #define SIZELEDBAR   10
+#define  LED_GREEN  46
+#define  LED_BLUE   47
 
 typedef enum
-{
-	STATE_IDLE,
-	STATE_UP_AUTO,
-	STATE_UP_MANUAL,
-	STATE_DOWN_AUTO,
-	STATE_DOWN_MANUAL,
-	STATE_ANTIPINCH,
-	STATE_BLOCK
-}STATES_WL;
-
-typedef  enum 
 {
 	LED0 = 34,
 	LED1 = 35,
@@ -105,10 +96,17 @@ typedef  enum
 	LED6 = 40,
 	LED7 = 41,
 	LED8 = 42,
-	LED9 = 44,
-	LED_BLUE = 46,
-	LED_GREEN = 47
+	LED9 = 44
 }LEDBAR;
+
+
+
+
+typedef struct 
+{
+	T_UBYTE Position;
+	LedType Leds[SIZELEDBAR];
+}BarType;
 
 
 typedef struct
@@ -118,12 +116,6 @@ typedef struct
 }Indicatortype;
 
 
-typedef struct
-{
-LedType Leds[SIZELEDBAR];
-T_UBYTE Position;
-T_UBYTE speed;
-}BarType;
 
 
 

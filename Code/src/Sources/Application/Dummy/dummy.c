@@ -66,19 +66,43 @@ Indicatortype MyIndicator;
 STATES_WL MyStatus;
 STATES_WL PreviousStatus;
 ButtonType *PtrButton;
+T_UBYTE Functionality;
+
+void test(void)
+{
+static int j=10;
+static int i=1;
+if(i)
+{
+	LEDBar_Init(&MyBar_WL);
+	Button_Init(&MyButtonUP,BUTTON_UP);	
+	i=0;	
+}
+
+
+if(Button_GetButtonStatus(&MyButtonUP))  //  (j) //
+{
+	LEDBar_UP_ONE(&MyBar_WL);	
+j--;
+}
+
+	
+}
+
 void Init_WL(void)
 {
 MyStatus=STATE_IDLE;
-Button_Init(&MyButtonUP);
-Button_Init(&MyButtonDOWN);
-Button_Init(&MyButtonANTIPINCH);
+Button_Init(&MyButtonUP,BUTTON_UP);
+Button_Init(&MyButtonDOWN,BUTTON_DOWN);
+Button_Init(&MyButtonANTIPINCH,BUTTON_ANTIPINCH);
 LEDBar_Init(&MyBar_WL);
 Indicator_Init(&MyIndicator);
+Functionality = FUNCTIONALITY_INVALID;
 
 }
 
 
-void Read(void)    //lee los puertos de entrada y incrementa sus contadores si son presionados , unico que asigna el puntero a boton
+void Read_o(void)    //lee los puertos de entrada y incrementa sus contadores si son presionados , unico que asigna el puntero a boton
 {
 	if( (MyStatus != STATE_ANTIPINCH) &&
 	(Button_GetButtonStatus(&MyButtonUP) ^ Button_GetButtonStatus(&MyButtonDOWN) ))
@@ -113,28 +137,34 @@ void Read(void)    //lee los puertos de entrada y incrementa sus contadores si s
 	
 }
 
-T_UBYTE validation()  
+void validation(void)  
 {
+	T_UBYTE variable=0;
 	if(PtrButton->ButtonTimeHigh > BUTTON_OVERFLOW_TIME)
 	{
 		PtrButton->ButtonTimeHigh--;	
 	}
-	if(	MyButtonANTIPINCH.ButtonTimeHigh == BUTTON_AUTO_TIME)  //poner rango 
-	{
-		return FUNCTIONALITY_ANTIPINCH;	 //automatic funtionality
-	}
+	
 	if(	PtrButton->ButtonTimeHigh == BUTTON_AUTO_TIME)  //poner rango 
 	{
-		return FUNCTIONALITY_AUTO;	 //automatic funtionality
+		Functionality = FUNCTIONALITY_AUTO;	 //automatic funtionality
+		variable++;
 	}
 	if(	PtrButton->ButtonTimeHigh == BUTTON_MANUAL_TIME)     //poner rango 
 	{
-		return FUNCTIONALITY_MANUAL;    //manual functoinality
+		Functionality = FUNCTIONALITY_MANUAL;    //manual functoinality
+		variable++;
 	}
-	else
+	if(	MyButtonANTIPINCH.ButtonTimeHigh == BUTTON_AUTO_TIME)  //poner rango 
 	{
-		return FUNCTIONALITY_INVALID;
+		Functionality = FUNCTIONALITY_ANTIPINCH;	 //automatic funtionality
+		variable++;
 	}
+	if(!variable)
+	{
+		Functionality=  FUNCTIONALITY_INVALID;
+	}
+
 }
 
 
@@ -142,22 +172,25 @@ T_UBYTE validation()
 void State_Mnager(void)    //if valid button 
 {
 	PreviousStatus=MyStatus;
-	if(MyStatus == STATE_IDLE  && FUNCTIONALITY_AUTO  )  
+	if(Functionality == FUNCTIONALITY_AUTO)
 	{
-		if(	PtrButton->ButtonID == BUTTON_UP)
+		if(MyStatus == STATE_IDLE  )  
 		{
-			MyStatus=STATE_UP_AUTO;
+			if(	PtrButton->ButtonID == BUTTON_UP)
+			{
+				MyStatus=STATE_UP_AUTO;
+			}
+			else if(PtrButton->ButtonID == BUTTON_DOWN)
+			{
+				MyStatus=STATE_DOWN_AUTO;
+			}
 		}
-		else if(PtrButton->ButtonID == BUTTON_DOWN)
+		else
 		{
-			MyStatus=STATE_DOWN_AUTO;
+			MyStatus=STATE_BLOCK;
 		}
 	}
-	else
-	{
-		MyStatus=STATE_BLOCK;
-	}
-	if(	FUNCTIONALITY_MANUAL   &&   (MyStatus == STATE_UP_AUTO  ||  MyStatus == STATE_DOWN_AUTO )   )
+	if(	Functionality  == FUNCTIONALITY_MANUAL   &&   (MyStatus == STATE_UP_AUTO  ||  MyStatus == STATE_DOWN_AUTO )   )
 	{
 		if(	PtrButton->ButtonID == BUTTON_UP)
 		{
@@ -168,7 +201,7 @@ void State_Mnager(void)    //if valid button
 			MyStatus=STATE_DOWN_MANUAL;
 		}
 	}
-	if( FUNCTIONALITY_ANTIPINCH  && (MyStatus == STATE_UP_AUTO || MyStatus == STATE_UP_MANUAL) )
+	if( Functionality == FUNCTIONALITY_ANTIPINCH  && (MyStatus == STATE_UP_AUTO || MyStatus == STATE_UP_MANUAL) )
 	{
 		MyStatus=STATE_ANTIPINCH;
 		MyButtonANTIPINCH.ButtonTimeHigh=0;
@@ -177,29 +210,39 @@ void State_Mnager(void)    //if valid button
 
 
 
-void Response(void)
+void Response_o(void)
 {
 	switch(MyStatus)
 	{
 		case STATE_BLOCK:
+		WL_StateFCN_Block();
 		break;
 		case STATE_IDLE:
+		WL_StateFCN_IDLE();
 		break;
 		case STATE_ANTIPINCH:
+		WL_StateFCN_Antipinch();
 		break;
 		case STATE_UP_AUTO:
+		WL_StateFCN_AutoUP();
 		break;
 		case STATE_UP_MANUAL:
+		WL_StateFCN_ManualUP();
 		break;
 		case STATE_DOWN_AUTO:
+		WL_StateFCN_AutoDOWN();
 		break;
 		case STATE_DOWN_MANUAL:
+		WL_StateFCN_ManualDOWN();
 		break;
 		default:
 		break;
 		
 	}
 }
+
+
+
 
 
 
@@ -236,6 +279,7 @@ void WL_StateFCN_Antipinch(void)
 	}
 	
 }
+
 void WL_StateFCN_Block(void)
 {
 	if(!Button_GetButtonStatus(PtrButton))

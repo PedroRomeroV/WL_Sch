@@ -27,7 +27,7 @@
 /* -------- */
 
 #include "Button.h"
-#include "GPIO.h"
+
 
 /* Functions macros, constants, types and datas         */
 /* ---------------------------------------------------- */
@@ -105,17 +105,17 @@
  *  Critical/explanation :    [yes / No]
  **************************************************************/
 
-void Button_Init( ButtonType * Button )
+void Button_Init( ButtonType * Button , T_UBYTE ID )
 {
     /* Data Port A initialization */ 
-	GPIO_InitChannel(Button->ButtonID,GPIO_INPUT,GPIO_OPEN_DRAIN_DISABLE);  
-	GPIO_Output (Button->ButtonID, 1);	
+    Button->ButtonID=ID;
+	GPIO_InitChannel(Button->ButtonID,GPIO_INPUT,GPIO_OPEN_DRAIN_DISABLE);  	
 }
 
 
 
 T_UBYTE Button_GetButtonStatus(ButtonType* Button)
 {
-return GPIO_GetStatus(Button->ButtonID);
+return GPIO_GetStatusInput(Button->ButtonID);
 }
 

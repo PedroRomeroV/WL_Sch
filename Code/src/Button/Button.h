@@ -29,16 +29,16 @@
 /* Includes */
 /* -------- */
 #include "typedefs.h"
-
+#include "GPIO.h"
 /* Exported types and constants */
 /* ---------------------------- */
 
 /* Types definition */
 /* typedef */
 
-#define BUTTON_UP			56
-#define BUTTON_DOWN			47
-#define BUTTON_ANTIPINCH	45
+#define BUTTON_UP			64
+#define BUTTON_DOWN			65
+#define BUTTON_ANTIPINCH	66
 
 
 /*==================================================*/ 
@@ -73,8 +73,8 @@ typedef struct
 }ButtonType; 
 
 
-void Button_Init(ButtonType * Button);
-inline T_UBYTE Button_GetButtonStatus(ButtonType * Button);
+void Button_Init(ButtonType * Button, T_UBYTE ID);
+extern T_UBYTE Button_GetButtonStatus(ButtonType * Button);
 
 
 

@@ -26,7 +26,7 @@
 /* Includes */
 /* -------- */
 #include "Leds.h"
-#include "GPIO.h"
+
 /* Functions macros, constants, types and datas         */
 /* ---------------------------------------------------- */
 /* Functions macros */
@@ -104,11 +104,12 @@
  *  Critical/explanation :    [yes / No]
  **************************************************************/
 
-void LED_Init( LedType * Led )
+void LED_Init( LedType * Led , T_UBYTE ID)
 {
     /* Data Port A initialization */
-	GPIO_InitChannel(*Led,GPIO_OUTPUT,GPIO_OPEN_DRAIN_ENABLE);  
-	GPIO_Output (*Led, 1);	
+    *Led=ID;
+	GPIO_InitChannel(*Led,GPIO_OUTPUT,GPIO_OPEN_DRAIN_DISABLE);  
+	GPIO_Output (*Led, 0);	
 }
 
 
@@ -131,7 +132,7 @@ GPIO_SetInvert(*Led);
 
 T_UBYTE Leds_GetLEDStatus(LedType* Led)
 {
-return GPIO_GetStatus(*Led);
+return GPIO_GetStatusOutput(*Led);
 }
 
 
