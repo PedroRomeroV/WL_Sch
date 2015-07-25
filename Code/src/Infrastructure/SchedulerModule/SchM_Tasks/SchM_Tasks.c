@@ -98,6 +98,21 @@ void SchM_Task_3P125MS(void)
 {
 
 
+static T_UBYTE Init=1;
+if(Init)
+{
+Init_WL();
+Init=0;	
+}
+else
+{
+Read_o();
+//test();
+validation();	
+
+}
+
+
 
 }
 
@@ -110,6 +125,8 @@ void SchM_Task_3P125MS(void)
  **************************************************************/
  void SchM_Task_6P25MS(void)
 {
+State_Mnager();
+Response_o();
 
 
 }
@@ -161,7 +178,7 @@ void SchM_Task_25MS(void)
  void SchM_Task_100MS(void)
 {
 
-test();
+
 }
  
 

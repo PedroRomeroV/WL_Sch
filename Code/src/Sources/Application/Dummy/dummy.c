@@ -67,26 +67,17 @@ STATES_WL MyStatus;
 STATES_WL PreviousStatus;
 ButtonType *PtrButton;
 T_UBYTE Functionality;
-
+T_UWORD lub_counter;
 void test(void)
 {
-static int j=10;
-static int i=1;
-if(i)
+
+
+if(	PtrButton->ButtonTimeHigh == BUTTON_AUTO_TIME)
 {
-	LEDBar_Init(&MyBar_WL);
-	Button_Init(&MyButtonUP,BUTTON_UP);	
-	i=0;	
+		LEDBar_UP_ONE(&MyBar_WL);
 }
 
 
-if(Button_GetButtonStatus(&MyButtonUP))  //  (j) //
-{
-	LEDBar_UP_ONE(&MyBar_WL);	
-j--;
-}
-
-	
 }
 
 void Init_WL(void)
@@ -96,9 +87,9 @@ Button_Init(&MyButtonUP,BUTTON_UP);
 Button_Init(&MyButtonDOWN,BUTTON_DOWN);
 Button_Init(&MyButtonANTIPINCH,BUTTON_ANTIPINCH);
 LEDBar_Init(&MyBar_WL);
-Indicator_Init(&MyIndicator);
+//Indicator_Init(&MyIndicator);
 Functionality = FUNCTIONALITY_INVALID;
-
+lub_counter=LED_TRANSITION_TIME;
 }
 
 
@@ -139,32 +130,35 @@ void Read_o(void)    //lee los puertos de entrada y incrementa sus contadores si
 
 void validation(void)  
 {
-	T_UBYTE variable=0;
-	if(PtrButton->ButtonTimeHigh > BUTTON_OVERFLOW_TIME)
-	{
-		PtrButton->ButtonTimeHigh--;	
-	}
-	
-	if(	PtrButton->ButtonTimeHigh == BUTTON_AUTO_TIME)  //poner rango 
-	{
-		Functionality = FUNCTIONALITY_AUTO;	 //automatic funtionality
-		variable++;
-	}
-	if(	PtrButton->ButtonTimeHigh == BUTTON_MANUAL_TIME)     //poner rango 
-	{
-		Functionality = FUNCTIONALITY_MANUAL;    //manual functoinality
-		variable++;
-	}
-	if(	MyButtonANTIPINCH.ButtonTimeHigh == BUTTON_AUTO_TIME)  //poner rango 
+
+	if(	MyButtonANTIPINCH.ButtonTimeHigh == BUTTON_AUTO_TIME)  //reach 10 ms go auto antipinch and ignore the rest
 	{
 		Functionality = FUNCTIONALITY_ANTIPINCH;	 //automatic funtionality
-		variable++;
 	}
-	if(!variable)
+	else
 	{
-		Functionality=  FUNCTIONALITY_INVALID;
+		switch(PtrButton->ButtonTimeHigh)
+		{
+		case BUTTON_AUTO_TIME:
+			Functionality = FUNCTIONALITY_AUTO;	 
+			break;
+		case BUTTON_MANUAL_TIME:
+			Functionality = FUNCTIONALITY_MANUAL; 
+			break;
+		default:
+			if(PtrButton->ButtonTimeHigh < BUTTON_AUTO_TIME)
+			{
+				Functionality=  FUNCTIONALITY_INVALID;
+			}
+			if(PtrButton->ButtonTimeHigh > BUTTON_OVERFLOW_TIME)
+			{
+				PtrButton->ButtonTimeHigh--;
+			}
+			else {}
+		break;
+		
+		}
 	}
-
 }
 
 
@@ -172,7 +166,7 @@ void validation(void)
 void State_Mnager(void)    //if valid button 
 {
 	PreviousStatus=MyStatus;
-	if(Functionality == FUNCTIONALITY_AUTO)
+	if(Functionality == FUNCTIONALITY_AUTO )
 	{
 		if(MyStatus == STATE_IDLE  )  
 		{
@@ -189,22 +183,30 @@ void State_Mnager(void)    //if valid button
 		{
 			MyStatus=STATE_BLOCK;
 		}
+		Functionality=  FUNCTIONALITY_INVALID;
 	}
-	if(	Functionality  == FUNCTIONALITY_MANUAL   &&   (MyStatus == STATE_UP_AUTO  ||  MyStatus == STATE_DOWN_AUTO )   )
+	if(	Functionality  == FUNCTIONALITY_MANUAL  )
 	{
-		if(	PtrButton->ButtonID == BUTTON_UP)
+		if(MyStatus == STATE_UP_AUTO  ||  MyStatus == STATE_DOWN_AUTO )
 		{
-			MyStatus=STATE_UP_MANUAL;
+			if(	PtrButton->ButtonID == BUTTON_UP)
+			{
+				MyStatus=STATE_UP_MANUAL;
+			}
+			else if(PtrButton->ButtonID == BUTTON_DOWN)
+			{
+				MyStatus=STATE_DOWN_MANUAL;
+			}
 		}
-		else if(PtrButton->ButtonID == BUTTON_DOWN)
-		{
-			MyStatus=STATE_DOWN_MANUAL;
-		}
+		Functionality=  FUNCTIONALITY_INVALID;
 	}
-	if( Functionality == FUNCTIONALITY_ANTIPINCH  && (MyStatus == STATE_UP_AUTO || MyStatus == STATE_UP_MANUAL) )
+	if( Functionality == FUNCTIONALITY_ANTIPINCH  )
 	{
-		MyStatus=STATE_ANTIPINCH;
-		MyButtonANTIPINCH.ButtonTimeHigh=0;
+		if(MyStatus == STATE_UP_AUTO || MyStatus == STATE_UP_MANUAL)
+		{
+			MyStatus=STATE_ANTIPINCH;
+		}
+		Functionality=  FUNCTIONALITY_INVALID;
 	}	
 }
 
@@ -215,28 +217,28 @@ void Response_o(void)
 	switch(MyStatus)
 	{
 		case STATE_BLOCK:
-		WL_StateFCN_Block();
-		break;
+			WL_StateFCN_Block();
+			break;
 		case STATE_IDLE:
-		WL_StateFCN_IDLE();
-		break;
+			WL_StateFCN_IDLE();
+			break;
 		case STATE_ANTIPINCH:
-		WL_StateFCN_Antipinch();
-		break;
+			WL_StateFCN_Antipinch();
+			break;
 		case STATE_UP_AUTO:
-		WL_StateFCN_AutoUP();
-		break;
+			WL_StateFCN_AutoUP();
+			break;
 		case STATE_UP_MANUAL:
-		WL_StateFCN_ManualUP();
-		break;
+			WL_StateFCN_ManualUP();
+			break;
 		case STATE_DOWN_AUTO:
-		WL_StateFCN_AutoDOWN();
-		break;
+			WL_StateFCN_AutoDOWN();
+			break;
 		case STATE_DOWN_MANUAL:
-		WL_StateFCN_ManualDOWN();
-		break;
+			WL_StateFCN_ManualDOWN();
+			break;
 		default:
-		break;
+			break;
 		
 	}
 }
@@ -250,7 +252,7 @@ void Response_o(void)
 
 void WL_StateFCN_IDLE(void)
 {
-	
+lub_counter=LED_TRANSITION_TIME;
 }
 
 
@@ -259,7 +261,6 @@ void WL_StateFCN_Antipinch(void)
 	
 	if(MyBar_WL.Position!=0)
 	{
-		static T_UWORD lub_counter=LED_TRANSITION_TIME;
 		if(lub_counter  == LED_TRANSITION_TIME )
 		{
 			LEDBar_DOWN_ONE(&MyBar_WL);
@@ -293,14 +294,8 @@ void WL_StateFCN_AutoUP(void)
 {
 	if(MyBar_WL.Position!=SIZELEDBAR)
 	{
-		static T_UWORD lub_counter=LED_TRANSITION_TIME;
-		if(PreviousStatus != STATE_UP_AUTO)
-		{
-			lub_counter=LED_TRANSITION_TIME ;
-		}
 		if(lub_counter  == LED_TRANSITION_TIME )
 		{
-			
 			LEDBar_UP_ONE(&MyBar_WL);
 			lub_counter=0;
 		}
@@ -317,14 +312,8 @@ void WL_StateFCN_AutoDOWN(void)
 {
 	if(MyBar_WL.Position!=0)
 	{
-		static T_UWORD lub_counter=LED_TRANSITION_TIME;
-		if(PreviousStatus != STATE_DOWN_AUTO)
-		{
-			lub_counter=LED_TRANSITION_TIME ;
-		}
 		if(lub_counter  == LED_TRANSITION_TIME )
 		{
-			
 			LEDBar_DOWN_ONE(&MyBar_WL);
 			lub_counter=0;
 		}
@@ -336,23 +325,12 @@ void WL_StateFCN_AutoDOWN(void)
 	}
 }
 
-
-
-
-
 void WL_StateFCN_ManualDOWN(void)
 {
-
 	if(MyBar_WL.Position!=0    &&  Button_GetButtonStatus(&MyButtonDOWN) )
 	{
-		static T_UWORD lub_counter=LED_TRANSITION_TIME;
-		if(PreviousStatus != STATE_DOWN_MANUAL)
-		{
-			lub_counter=LED_TRANSITION_TIME ;
-		}
 		if(lub_counter  == LED_TRANSITION_TIME )
 		{
-			
 			LEDBar_DOWN_ONE(&MyBar_WL);
 			lub_counter=0;
 		}
@@ -361,19 +339,13 @@ void WL_StateFCN_ManualDOWN(void)
 	else
 	{
 		MyStatus = STATE_IDLE;
-	}	
-	
+	}		
 }
 
 void WL_StateFCN_ManualUP(void)
 {
 if(MyBar_WL.Position!=0    &&  Button_GetButtonStatus(&MyButtonUP) )
 	{
-		static T_UWORD lub_counter=LED_TRANSITION_TIME;
-		if(PreviousStatus != STATE_UP_MANUAL)
-		{
-			lub_counter=LED_TRANSITION_TIME ;
-		}
 		if(lub_counter  == LED_TRANSITION_TIME )
 		{
 			

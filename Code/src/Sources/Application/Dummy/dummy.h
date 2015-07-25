@@ -30,7 +30,7 @@
 
 /*-- Function Prototypes -----------------------------------------------------*/
 
-#define LED_TRANSITION_TIME					255
+#define LED_TRANSITION_TIME					200
 #define BUTTON_AUTO_TIME					10
 #define BUTTON_MANUAL_TIME 	                500
 #define BUTTON_OVERFLOW_TIME 				BUTTON_MANUAL_TIME +50
@@ -38,7 +38,7 @@
 #define FUNCTIONALITY_MANUAL				1
 #define FUNCTIONALITY_AUTO					2
 #define FUNCTIONALITY_ANTIPINCH				3
-#define DELAY_TIME                          1000
+#define DELAY_TIME                          2500
 
 
 typedef enum
