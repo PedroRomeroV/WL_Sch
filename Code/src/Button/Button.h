@@ -29,7 +29,7 @@
 /* Includes */
 /* -------- */
 #include "typedefs.h"
-#include "GPIO.h"
+
 /* Exported types and constants */
 /* ---------------------------- */
 
@@ -68,13 +68,13 @@
 
 typedef struct
 {
-	T_UBYTE ButtonID;
-	T_UWORD ButtonTimeHigh;
-}ButtonType; 
+	T_UBYTE ub_ButtonID;
+	T_UWORD ub_ButtonTimeHigh;
+}S_BUTTON_TYPE; 
 
 
-void Button_Init(ButtonType * Button, T_UBYTE ID);
-extern T_UBYTE Button_GetButtonStatus(ButtonType * Button);
+extern void Button_Init(S_BUTTON_TYPE * Button, T_UBYTE ub_ID);
+extern T_UBYTE Button_GetStatus(S_BUTTON_TYPE * Button);
 
 
 

@@ -30,7 +30,7 @@
 /* -------- */
 
 #include "typedefs.h"
-#include "GPIO.h"
+
 
 /* Exported types and constants */
 /* ---------------------------- */
@@ -63,14 +63,14 @@
 
 
 
-typedef T_UBYTE LedType; 
+typedef T_UBYTE T_LED_TYPE; 
 
 
-void LED_Init(LedType * Led,T_UBYTE ID);
-extern void Leds_ON(LedType * Led);
-extern void Leds_OFF(LedType * Led);
-extern void Leds_Toggle(LedType * Led);
-inline T_UBYTE Leds_GetLEDStatus(LedType * Led);
+extern void LED_Init(T_LED_TYPE * Led,T_UBYTE ub_ID);
+extern void LED_ON(T_LED_TYPE * Led);
+extern void LED_OFF(T_LED_TYPE * Led);
+extern void LED_Toggle(T_LED_TYPE * Led);
+extern T_UBYTE LED_GetStatus(T_LED_TYPE * Led);
 
 
 

@@ -106,59 +106,55 @@
 
 
 
+extern const  T_LED_TYPE  at_LEDBAR_PORT[SIZELEDBAR]={LED0,LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8,LED9};
 
-extern const  LedType  LED_BAR[SIZELEDBAR]={LED0,LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8,LED9};
-
-void Indicator_Init(Indicatortype *MyIndicator)
+void Indicator_Init(S_INDICATOR_TYPE *Indicator)
 {
-LED_Init(&MyIndicator->LedUP,LED_GREEN);
-LED_Init(&MyIndicator->LedDOWN,LED_BLUE);
-}
-
-void Indicator_SetUP(Indicatortype *MyIndicator)
-{
-Leds_ON(&MyIndicator->LedUP);
-Leds_OFF(&MyIndicator->LedDOWN);
-}
-void Indicator_SetDOWN(Indicatortype *MyIndicator)
-{
-Leds_OFF(&MyIndicator->LedUP);
-Leds_ON(&MyIndicator->LedDOWN);	
-}
-void IndicatorI_SetIDLE(Indicatortype *MyIndicator)
-{
-Leds_OFF(&MyIndicator->LedUP);
-Leds_OFF(&MyIndicator->LedDOWN);
+	LED_Init(&Indicator->t_LED_UP,LED_GREEN);
+	LED_Init(&Indicator->t_LED_DOWN,LED_BLUE);
 }
 
-T_UBYTE Indicator_GetStatus(Indicatortype *MyIndicator)
+void Indicator_SetUP(S_INDICATOR_TYPE *Indicator)
 {
-	return 0;
+	LED_ON(&Indicator->t_LED_UP);
+	LED_OFF(&Indicator->t_LED_DOWN);
 }
+void Indicator_SetDOWN(S_INDICATOR_TYPE *Indicator)
+{
+	LED_OFF(&Indicator->t_LED_UP);
+	LED_ON(&Indicator->t_LED_DOWN);	
+}
+void Indicator_SetIDLE(S_INDICATOR_TYPE *Indicator)
+{
+	LED_OFF(&Indicator->t_LED_UP);
+	LED_OFF(&Indicator->t_LED_DOWN);
+}
+
+
 	
 
  
-void LEDBar_Init(BarType *MyBar)
+void LEDBar_Init(S_BAR_TYPE *MyBar)
 {
 
 T_UBYTE pos=0;
 for(pos=0;pos<SIZELEDBAR;pos++)
 {
-	LED_Init(&MyBar->Leds[pos],LED_BAR[pos]);
+	LED_Init(&MyBar->at_LED[pos],at_LEDBAR_PORT[pos]);
 }
-MyBar->Position=0;
-}
-
-void LEDBar_UP_ONE(BarType *MyBar)
-{
-	Leds_ON(&MyBar->Leds[MyBar->Position] );
-	MyBar->Position++;
+MyBar->ub_Position=0;
 }
 
-void LEDBar_DOWN_ONE(BarType *MyBar)
+void LEDBar_UP_ONE(S_BAR_TYPE *MyBar)
 {
-MyBar->Position--;
-Leds_OFF(&MyBar->Leds[MyBar->Position] );
+	LED_ON(&MyBar->at_LED[MyBar->ub_Position] );
+	MyBar->ub_Position++;
+}
+
+void LEDBar_DOWN_ONE(S_BAR_TYPE *MyBar)
+{
+MyBar->ub_Position--;
+LED_OFF(&MyBar->at_LED[MyBar->ub_Position] );
 }
 void LEDBar_UP_ALL()
 {

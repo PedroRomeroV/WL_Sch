@@ -97,39 +97,37 @@ typedef enum
 	LED7 = 41,
 	LED8 = 42,
 	LED9 = 44
-}LEDBAR;
+}E_LEDBAR_PORT;
 
 
 
 
 typedef struct 
 {
-	T_UBYTE Position;
-	LedType Leds[SIZELEDBAR];
-}BarType;
+	T_UBYTE ub_Position;
+	T_LED_TYPE at_LED[SIZELEDBAR];
+}S_BAR_TYPE;
 
 
 typedef struct
 {
-	LedType LedUP;
-	LedType LedDOWN;
-}Indicatortype;
+	T_LED_TYPE t_LED_UP;
+	T_LED_TYPE t_LED_DOWN;
+}S_INDICATOR_TYPE;
 
 
 
 
 
 
-void Indicator_Init(Indicatortype *MyIndicator);
-void Indicator_SetUP(Indicatortype *MyIndicator);
-void Indicator_SetDOWN(Indicatortype *MyIndicator);
-void IndicatorI_SetIDLE(Indicatortype *MyIndicator);
-T_UBYTE Indicator_GetStatus(Indicatortype *MyIndicator);
-void LEDBar_Init(BarType *MyBar);
-void LEDBar_UP_ONE(BarType *MyBar);
-void LEDBar_DOWN_ONE(BarType *MyBar);
-void LEDBar_UP_ALL();
-void LEDBar_DOWN_ALL();
+void Indicator_Init(S_INDICATOR_TYPE *Indicator);
+void Indicator_SetUP(S_INDICATOR_TYPE *Indicator);
+void Indicator_SetDOWN(S_INDICATOR_TYPE *Indicator);
+void Indicator_SetIDLE(S_INDICATOR_TYPE *Indicator);
+
+void LEDBar_Init(S_BAR_TYPE *Bar);
+void LEDBar_UP_ONE(S_BAR_TYPE *Bar);
+void LEDBar_DOWN_ONE(S_BAR_TYPE *Bar);
 
 
 #endif
