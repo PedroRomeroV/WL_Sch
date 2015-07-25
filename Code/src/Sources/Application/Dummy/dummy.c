@@ -68,6 +68,7 @@ STATES_WL PreviousStatus;
 ButtonType *PtrButton;
 T_UBYTE Functionality;
 T_UWORD lub_counter;
+
 void test(void)
 {
 
@@ -87,7 +88,7 @@ Button_Init(&MyButtonUP,BUTTON_UP);
 Button_Init(&MyButtonDOWN,BUTTON_DOWN);
 Button_Init(&MyButtonANTIPINCH,BUTTON_ANTIPINCH);
 LEDBar_Init(&MyBar_WL);
-//Indicator_Init(&MyIndicator);
+Indicator_Init(&MyIndicator);
 Functionality = FUNCTIONALITY_INVALID;
 lub_counter=LED_TRANSITION_TIME;
 }
@@ -253,6 +254,7 @@ void Response_o(void)
 void WL_StateFCN_IDLE(void)
 {
 lub_counter=LED_TRANSITION_TIME;
+IndicatorI_SetIDLE(&MyIndicator);
 }
 
 
@@ -266,7 +268,8 @@ void WL_StateFCN_Antipinch(void)
 			LEDBar_DOWN_ONE(&MyBar_WL);
 			lub_counter=0;
 		}
-		lub_counter++;			
+		lub_counter++;	
+		Indicator_SetDOWN(&MyIndicator);	
 	}
 	else
 	{
@@ -277,6 +280,7 @@ void WL_StateFCN_Antipinch(void)
 			couterdelay=0;
 		}
 		couterdelay++;
+		IndicatorI_SetIDLE(&MyIndicator);
 	}
 	
 }
@@ -287,6 +291,7 @@ void WL_StateFCN_Block(void)
 	{
 		MyStatus = STATE_IDLE;
 	}		
+	IndicatorI_SetIDLE(&MyIndicator);
 }
 
 
@@ -299,7 +304,8 @@ void WL_StateFCN_AutoUP(void)
 			LEDBar_UP_ONE(&MyBar_WL);
 			lub_counter=0;
 		}
-		lub_counter++;			
+		lub_counter++;
+		Indicator_SetUP(&MyIndicator);			
 	}
 	else
 	{
@@ -317,7 +323,8 @@ void WL_StateFCN_AutoDOWN(void)
 			LEDBar_DOWN_ONE(&MyBar_WL);
 			lub_counter=0;
 		}
-		lub_counter++;			
+		lub_counter++;
+		Indicator_SetDOWN(&MyIndicator);			
 	}
 	else
 	{
@@ -334,7 +341,8 @@ void WL_StateFCN_ManualDOWN(void)
 			LEDBar_DOWN_ONE(&MyBar_WL);
 			lub_counter=0;
 		}
-		lub_counter++;			
+		lub_counter++;
+		Indicator_SetDOWN(&MyIndicator);			
 	}
 	else
 	{
@@ -352,7 +360,8 @@ if(MyBar_WL.Position!=0    &&  Button_GetButtonStatus(&MyButtonUP) )
 			LEDBar_UP_ONE(&MyBar_WL);
 			lub_counter=0;
 		}
-		lub_counter++;			
+		lub_counter++;	
+		Indicator_SetUP(&MyIndicator);		
 	}
 	else
 	{

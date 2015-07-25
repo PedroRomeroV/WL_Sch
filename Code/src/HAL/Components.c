@@ -111,8 +111,8 @@ extern const  LedType  LED_BAR[SIZELEDBAR]={LED0,LED1,LED2,LED3,LED4,LED5,LED6,L
 
 void Indicator_Init(Indicatortype *MyIndicator)
 {
-	MyIndicator->LedUP=LED_GREEN;
-	MyIndicator->LedDOWN=LED_BLUE;
+LED_Init(&MyIndicator->LedUP,LED_GREEN);
+LED_Init(&MyIndicator->LedDOWN,LED_BLUE);
 }
 
 void Indicator_SetUP(Indicatortype *MyIndicator)
