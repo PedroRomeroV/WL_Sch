@@ -16,8 +16,7 @@
 /** Core modules */
 /** Variable types and common definitions */
 
-#include "Button.h"
-#include "Components.h"
+
 
 
 
@@ -30,15 +29,16 @@
 
 /*-- Function Prototypes -----------------------------------------------------*/
 
-#define LED_TRANSITION_TIME					200
-#define BUTTON_AUTO_TIME					10
-#define BUTTON_MANUAL_TIME 	                500
-#define BUTTON_OVERFLOW_TIME 				BUTTON_MANUAL_TIME +50
+#define TIME_LED_TRANSITION					200
+#define TIME_DELAY                          2500
+#define TIME_VALIDATION_BUTTON_AUTO			10
+#define TIME_VALIDATION_BUTTON_MANUAL		500
+#define TIME_BUTTON_OVERFLOW 				TIME_VALIDATION_BUTTON_MANUAL + 50
 #define FUNCTIONALITY_INVALID				0
 #define FUNCTIONALITY_MANUAL				1
 #define FUNCTIONALITY_AUTO					2
 #define FUNCTIONALITY_ANTIPINCH				3
-#define DELAY_TIME                          2500
+
 
 
 typedef enum
@@ -50,22 +50,21 @@ typedef enum
 	STATE_DOWN_MANUAL,
 	STATE_ANTIPINCH,
 	STATE_BLOCK
-}STATES_WL;
+}E_STATES_WL;
 
 
-void Init_WL(void);
-extern void Read_o(void);
-void validation(void);
-void State_Mnager(void);
-extern void Response_o(void);
-void WL_StateFCN_AutoDOWN(void);
-void WL_StateFCN_AutoUP(void);
-void WL_StateFCN_ManualDOWN(void);
-void WL_StateFCN_ManualUP(void);
-void WL_StateFCN_Antipinch(void);
-void WL_StateFCN_IDLE(void);
-void WL_StateFCN_Block(void);
-void test(void);
+extern void WL_Init(void);
+extern void WL_Read_1ms(void);
+extern void WL_TimeValidation_1ms(void);
+extern void WL_StateManager_2ms(void);
+extern void WL_StateResponse_2ms(void);
+static void WL_StateFCN_AutoDOWN(void);
+static void WL_StateFCN_AutoUP(void);
+static void WL_StateFCN_ManualDOWN(void);
+static void WL_StateFCN_ManualUP(void);
+static void WL_StateFCN_Antipinch(void);
+static void WL_StateFCN_IDLE(void);
+static void WL_StateFCN_Block(void);
 
 #endif /* _DUMMY_H */
 

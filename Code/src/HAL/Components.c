@@ -106,64 +106,53 @@
 
 
 
-extern const  T_LED_TYPE  at_LEDBAR_PORT[SIZELEDBAR]={LED0,LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8,LED9};
+extern const  T_LED_TYPE  cat_LEDBAR_PORT[SIZELEDBAR]={LED0,LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8,LED9};
 
-void Indicator_Init(S_INDICATOR_TYPE *Indicator)
+void Indicator_Init(S_INDICATOR_TYPE *ps_Indicator)
 {
-	LED_Init(&Indicator->t_LED_UP,LED_GREEN);
-	LED_Init(&Indicator->t_LED_DOWN,LED_BLUE);
+	LED_Init(&ps_Indicator->t_LED_UP,LED_GREEN);
+	LED_Init(&ps_Indicator->t_LED_DOWN,LED_BLUE);
 }
 
-void Indicator_SetUP(S_INDICATOR_TYPE *Indicator)
+void Indicator_SetUP(S_INDICATOR_TYPE *ps_Indicator)
 {
-	LED_ON(&Indicator->t_LED_UP);
-	LED_OFF(&Indicator->t_LED_DOWN);
+	LED_ON(&ps_Indicator->t_LED_UP);
+	LED_OFF(&ps_Indicator->t_LED_DOWN);
 }
-void Indicator_SetDOWN(S_INDICATOR_TYPE *Indicator)
+void Indicator_SetDOWN(S_INDICATOR_TYPE *ps_Indicator)
 {
-	LED_OFF(&Indicator->t_LED_UP);
-	LED_ON(&Indicator->t_LED_DOWN);	
+	LED_OFF(&ps_Indicator->t_LED_UP);
+	LED_ON(&ps_Indicator->t_LED_DOWN);	
 }
-void Indicator_SetIDLE(S_INDICATOR_TYPE *Indicator)
+void Indicator_SetIDLE(S_INDICATOR_TYPE *ps_Indicator)
 {
-	LED_OFF(&Indicator->t_LED_UP);
-	LED_OFF(&Indicator->t_LED_DOWN);
+	LED_OFF(&ps_Indicator->t_LED_UP);
+	LED_OFF(&ps_Indicator->t_LED_DOWN);
 }
 
 
 	
 
  
-void LEDBar_Init(S_BAR_TYPE *MyBar)
+void LEDBar_Init(S_BAR_TYPE *ps_LEDBar)
 {
-
-T_UBYTE pos=0;
-for(pos=0;pos<SIZELEDBAR;pos++)
-{
-	LED_Init(&MyBar->at_LED[pos],at_LEDBAR_PORT[pos]);
-}
-MyBar->ub_Position=0;
-}
-
-void LEDBar_UP_ONE(S_BAR_TYPE *MyBar)
-{
-	LED_ON(&MyBar->at_LED[MyBar->ub_Position] );
-	MyBar->ub_Position++;
+	T_UBYTE ub_Position=0;
+	for(ub_Position=0;ub_Position<SIZELEDBAR;ub_Position++)
+	{
+		LED_Init(&ps_LEDBar->at_LED[ub_Position],cat_LEDBAR_PORT[ub_Position]);
+	}
+	ps_LEDBar->ub_Position=0;
 }
 
-void LEDBar_DOWN_ONE(S_BAR_TYPE *MyBar)
+void LEDBar_UP_ONE(S_BAR_TYPE *ps_LEDBar)
 {
-MyBar->ub_Position--;
-LED_OFF(&MyBar->at_LED[MyBar->ub_Position] );
-}
-void LEDBar_UP_ALL()
-{
-	
-}
-void LEDBar_DOWN_ALL()
-{
-	
+	LED_ON(&ps_LEDBar->at_LED[ps_LEDBar->ub_Position] );
+	ps_LEDBar->ub_Position++;
 }
 
-
+void LEDBar_DOWN_ONE(S_BAR_TYPE *ps_LEDBar)
+{
+	ps_LEDBar->ub_Position--;
+	LED_OFF(&ps_LEDBar->at_LED[ps_LEDBar->ub_Position] );
+}
 

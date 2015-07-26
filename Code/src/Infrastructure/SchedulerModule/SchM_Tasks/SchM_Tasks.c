@@ -97,20 +97,17 @@
 void SchM_Task_3P125MS(void)
 {
 
-
-static T_UBYTE Init=1;
-if(Init)
-{
-Init_WL();
-Init=0;	
-}
-else
-{
-Read_o();
-//test();
-validation();	
-
-}
+	static T_UBYTE rub_Init=1;
+	if(rub_Init)
+	{
+		WL_Init();
+		rub_Init=0;	
+	}
+	else
+	{
+		WL_Read_1ms();
+		WL_TimeValidation_1ms();	
+	}
 
 
 
@@ -125,9 +122,9 @@ validation();
  **************************************************************/
  void SchM_Task_6P25MS(void)
 {
-State_Mnager();
-Response_o();
 
+	WL_StateManager_2ms();
+	WL_StateResponse_2ms();
 
 }
 

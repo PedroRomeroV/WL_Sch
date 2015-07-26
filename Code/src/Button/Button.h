@@ -73,8 +73,8 @@ typedef struct
 }S_BUTTON_TYPE; 
 
 
-extern void Button_Init(S_BUTTON_TYPE * Button, T_UBYTE ub_ID);
-extern T_UBYTE Button_GetStatus(S_BUTTON_TYPE * Button);
+extern void Button_Init(S_BUTTON_TYPE * ps_Button, T_UBYTE ub_ID);
+extern T_UBYTE Button_GetStatus(S_BUTTON_TYPE * ps_Button);
 
 
 

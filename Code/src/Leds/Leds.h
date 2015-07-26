@@ -66,11 +66,11 @@
 typedef T_UBYTE T_LED_TYPE; 
 
 
-extern void LED_Init(T_LED_TYPE * Led,T_UBYTE ub_ID);
-extern void LED_ON(T_LED_TYPE * Led);
-extern void LED_OFF(T_LED_TYPE * Led);
-extern void LED_Toggle(T_LED_TYPE * Led);
-extern T_UBYTE LED_GetStatus(T_LED_TYPE * Led);
+extern void LED_Init(T_LED_TYPE * pt_Led,T_UBYTE ub_ID);
+extern void LED_ON(T_LED_TYPE * pt_Led);
+extern void LED_OFF(T_LED_TYPE * pt_Led);
+extern void LED_Toggle(T_LED_TYPE * pt_Led);
+extern T_UBYTE LED_GetStatus(T_LED_TYPE * pt_Led);
 
 
 
