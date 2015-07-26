@@ -73,12 +73,12 @@
 
 /* Functions prototypes */
 
-void SchM_Task_3P125MS(void);
-void SchM_Task_6P25MS(void);
-void SchM_Task_12P5MS(void);
-void SchM_Task_25MS(void);
-void SchM_Task_50MS(void);
-void SchM_Task_100MS(void);
+void SchM_Task_1MS(void);
+void SchM_Task_2MS(void);
+void SchM_Task_4MS(void);
+void SchM_Task_8MS(void);
+void SchM_Task_16MS(void);
+void SchM_Task_32MS(void);
 
 
 /* Functions macros */

@@ -55,10 +55,10 @@ typedef enum
 
 
 extern void WL_Init(void);
-extern void WL_Read_1ms(void);
-extern void WL_TimeValidation_1ms(void);
-extern void WL_StateManager_2ms(void);
-extern void WL_StateResponse_2ms(void);
+extern void WL_Read_1MS(void);
+extern void WL_TimeValidation_1MS(void);
+extern void WL_StateManager_2MS(void);
+extern void WL_StateResponse_2MS(void);
 static void WL_StateFCN_AutoDOWN(void);
 static void WL_StateFCN_AutoUP(void);
 static void WL_StateFCN_ManualDOWN(void);

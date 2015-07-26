@@ -94,7 +94,7 @@
  *  Return               :	void
  *  Critical/explanation :    [No]
  **************************************************************/
-void SchM_Task_3P125MS(void)
+void SchM_Task_1MS(void)
 {
 
 	static T_UBYTE rub_Init=1;
@@ -105,8 +105,8 @@ void SchM_Task_3P125MS(void)
 	}
 	else
 	{
-		WL_Read_1ms();
-		WL_TimeValidation_1ms();	
+		WL_Read_1MS();
+		WL_TimeValidation_1MS();	
 	}
 
 
@@ -120,11 +120,11 @@ void SchM_Task_3P125MS(void)
  *  Return               :	void
  *  Critical/explanation :    [No]
  **************************************************************/
- void SchM_Task_6P25MS(void)
+ void SchM_Task_2MS(void)
 {
 
-	WL_StateManager_2ms();
-	WL_StateResponse_2ms();
+	WL_StateManager_2MS();
+	WL_StateResponse_2MS();
 
 }
 
@@ -135,7 +135,7 @@ void SchM_Task_3P125MS(void)
  *  Return               :	void
  *  Critical/explanation :    [No]
  **************************************************************/
- void SchM_Task_12P5MS(void)
+ void SchM_Task_4MS(void)
 {
 
 	
@@ -148,7 +148,7 @@ void SchM_Task_3P125MS(void)
  *  Return               :	void
  *  Critical/explanation :    [No]
  **************************************************************/
-void SchM_Task_25MS(void)
+void SchM_Task_8MS(void)
 {
 	
 }
@@ -160,7 +160,7 @@ void SchM_Task_25MS(void)
  *  Return               :	void
  *  Critical/explanation :    [No]
  **************************************************************/
- void SchM_Task_50MS(void)
+ void SchM_Task_16MS(void)
 {
 		
 }
@@ -172,7 +172,7 @@ void SchM_Task_25MS(void)
  *  Return               :	void
  *  Critical/explanation :    [No]
  **************************************************************/
- void SchM_Task_100MS(void)
+ void SchM_Task_32MS(void)
 {
 
 

@@ -86,7 +86,7 @@ void WL_Init(void)
 }
 
 
-void WL_Read_1ms(void)    //lee los puertos de entrada y incrementa sus contadores si son presionados , unico que asigna el puntero a boton
+void WL_Read_1MS(void)    //lee los puertos de entrada y incrementa sus contadores si son presionados , unico que asigna el puntero a boton
 {
 	if( (e_State != STATE_ANTIPINCH) &&
 	(Button_GetStatus(&s_ButtonUP) ^ Button_GetStatus(&s_ButtonDOWN) ))
@@ -121,12 +121,12 @@ void WL_Read_1ms(void)    //lee los puertos de entrada y incrementa sus contador
 }
 
 
-void WL_TimeValidation_1ms(void)  
+void WL_TimeValidation_1MS(void)  
 {
 
 	if(	s_ButtonANTIPINCH.ub_ButtonTimeHigh > TIME_VALIDATION_BUTTON_ANTIPINCH) 
 	{
-		ub_Functionality = FUNCTIONALITY_ANTIPINCH;	 //automatic funtionality
+		ub_Functionality = FUNCTIONALITY_ANTIPINCH;	
 	}
 	else
 	{
@@ -156,7 +156,7 @@ void WL_TimeValidation_1ms(void)
 
 
 
-void WL_StateManager_2ms(void)    //if valid button 
+void WL_StateManager_2MS(void)    //if valid button 
 {
 	e_PrevState=e_State;
 	if(ub_Functionality == FUNCTIONALITY_AUTO )
@@ -205,7 +205,7 @@ void WL_StateManager_2ms(void)    //if valid button
 
 
 
-void WL_StateResponse_2ms(void)
+void WL_StateResponse_2MS(void)
 {
 	switch(e_State)
 	{
