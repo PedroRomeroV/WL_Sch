@@ -75,7 +75,7 @@ T_UWORD uw_TimeCounter;
 
 void WL_Init(void)
 {
-	e_State=STATE_IDLE;
+	e_State=STATE_IDLE;	
 	Button_Init(&s_ButtonUP,BUTTON_UP);
 	Button_Init(&s_ButtonDOWN,BUTTON_DOWN);
 	Button_Init(&s_ButtonANTIPINCH,BUTTON_ANTIPINCH);
@@ -118,13 +118,13 @@ void WL_Read_1ms(void)    //lee los puertos de entrada y incrementa sus contador
 	{
 		s_ButtonANTIPINCH.ub_ButtonTimeHigh=0;
 	}
-	
 }
+
 
 void WL_TimeValidation_1ms(void)  
 {
 
-	if(	s_ButtonANTIPINCH.ub_ButtonTimeHigh == TIME_VALIDATION_BUTTON_AUTO)  //reach 10 ms go auto antipinch and ignore the rest
+	if(	s_ButtonANTIPINCH.ub_ButtonTimeHigh > TIME_VALIDATION_BUTTON_ANTIPINCH) 
 	{
 		ub_Functionality = FUNCTIONALITY_ANTIPINCH;	 //automatic funtionality
 	}
