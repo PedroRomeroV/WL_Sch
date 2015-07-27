@@ -108,51 +108,51 @@
 
 extern const  T_LED_TYPE  cat_LEDBAR_PORT[SIZELEDBAR]={LED0,LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8,LED9};
 
-void Indicator_Init(S_INDICATOR_TYPE *ps_Indicator)
+void Indicator_Init(S_INDICATOR_TYPE *lps_Indicator)
 {
-	LED_Init(&ps_Indicator->t_LED_UP,LED_GREEN);
-	LED_Init(&ps_Indicator->t_LED_DOWN,LED_BLUE);
+	LED_Init(&lps_Indicator->t_LED_UP,LED_GREEN);
+	LED_Init(&lps_Indicator->t_LED_DOWN,LED_BLUE);
 }
 
-void Indicator_SetUP(S_INDICATOR_TYPE *ps_Indicator)
+void Indicator_SetUP(S_INDICATOR_TYPE *lps_Indicator)
 {
-	LED_ON(&ps_Indicator->t_LED_UP);
-	LED_OFF(&ps_Indicator->t_LED_DOWN);
+	LED_ON(&lps_Indicator->t_LED_UP);
+	LED_OFF(&lps_Indicator->t_LED_DOWN);
 }
-void Indicator_SetDOWN(S_INDICATOR_TYPE *ps_Indicator)
+void Indicator_SetDOWN(S_INDICATOR_TYPE *lps_Indicator)
 {
-	LED_OFF(&ps_Indicator->t_LED_UP);
-	LED_ON(&ps_Indicator->t_LED_DOWN);	
+	LED_OFF(&lps_Indicator->t_LED_UP);
+	LED_ON(&lps_Indicator->t_LED_DOWN);	
 }
-void Indicator_SetIDLE(S_INDICATOR_TYPE *ps_Indicator)
+void Indicator_SetIDLE(S_INDICATOR_TYPE *lps_Indicator)
 {
-	LED_OFF(&ps_Indicator->t_LED_UP);
-	LED_OFF(&ps_Indicator->t_LED_DOWN);
+	LED_OFF(&lps_Indicator->t_LED_UP);
+	LED_OFF(&lps_Indicator->t_LED_DOWN);
 }
 
 
 	
 
  
-void LEDBar_Init(S_BAR_TYPE *ps_LEDBar)
+void LEDBar_Init(S_BAR_TYPE *lps_LEDBar)
 {
 	T_UBYTE ub_Position=0;
 	for(ub_Position=0;ub_Position<SIZELEDBAR;ub_Position++)
 	{
-		LED_Init(&ps_LEDBar->at_LED[ub_Position],cat_LEDBAR_PORT[ub_Position]);
+		LED_Init(&lps_LEDBar->at_LED[ub_Position],cat_LEDBAR_PORT[ub_Position]);
 	}
-	ps_LEDBar->ub_Position=0;
+	lps_LEDBar->ub_Position=0;
 }
 
-void LEDBar_UP_ONE(S_BAR_TYPE *ps_LEDBar)
+void LEDBar_UP_ONE(S_BAR_TYPE *lps_LEDBar)
 {
-	LED_ON(&ps_LEDBar->at_LED[ps_LEDBar->ub_Position] );
-	ps_LEDBar->ub_Position++;
+	LED_ON(&lps_LEDBar->at_LED[lps_LEDBar->ub_Position] );
+	lps_LEDBar->ub_Position++;
 }
 
-void LEDBar_DOWN_ONE(S_BAR_TYPE *ps_LEDBar)
+void LEDBar_DOWN_ONE(S_BAR_TYPE *lps_LEDBar)
 {
-	ps_LEDBar->ub_Position--;
-	LED_OFF(&ps_LEDBar->at_LED[ps_LEDBar->ub_Position] );
+	lps_LEDBar->ub_Position--;
+	LED_OFF(&lps_LEDBar->at_LED[lps_LEDBar->ub_Position] );
 }
 

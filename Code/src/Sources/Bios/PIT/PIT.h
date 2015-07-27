@@ -53,19 +53,19 @@ extern tCallbackFunction PIT_Callback[8];
 /** PIT Low level initialization */
 void PIT_device_init(void);
 
-/* PIT Low level channel configuration */
-void PIT_channel_configure(uint8_t channel, tCallbackFunction Callback);
+/* PIT Low level ub_Channel configuration */
+void PIT_channel_configure(T_UBYTE ub_Channel, tCallbackFunction t_Callback);
 
 /** PIT Low level Start procedure */
-void PIT_channel_start(uint8_t channel);
+void PIT_channel_start(T_UBYTE ub_Channel);
 
 /** PIT Low level Stop procedure */
-void PIT_channel_stop(uint8_t channel);
+void PIT_channel_stop(T_UBYTE ub_Channel);
 
 /** PIT Channel 0 ISR  */
 void PIT_channel_0_isr( void  );
 
-inline const volatile  T_ULONG PIT_getCurrentValueRegister(uint8_t channel);
+inline const volatile  T_ULONG PIT_getCurrentValueRegister(T_UBYTE ub_Channel);
 
 /*******************************************************************************/
 

@@ -99,24 +99,24 @@ void WL_Read_1MS(void)    //lee los puertos de entrada y incrementa sus contador
 		{
 			ps_Button= &s_ButtonDOWN;
 		}
-		ps_Button->ub_ButtonTimeHigh++;
+		ps_Button->uw_ButtonTimeHigh++;
 	}
 	else
 	{
-		s_ButtonUP.ub_ButtonTimeHigh=0;
-		s_ButtonDOWN.ub_ButtonTimeHigh=0;
+		s_ButtonUP.uw_ButtonTimeHigh=0;
+		s_ButtonDOWN.uw_ButtonTimeHigh=0;
 	}
 	if( e_State == STATE_UP_AUTO ||  e_State == STATE_UP_MANUAL )
 	{
 		if(Button_GetStatus(&s_ButtonANTIPINCH))
 		{
-			s_ButtonANTIPINCH.ub_ButtonTimeHigh++;
+			s_ButtonANTIPINCH.uw_ButtonTimeHigh++;
 		}
 		
 	}
 	else
 	{
-		s_ButtonANTIPINCH.ub_ButtonTimeHigh=0;
+		s_ButtonANTIPINCH.uw_ButtonTimeHigh=0;
 	}
 }
 
@@ -124,13 +124,13 @@ void WL_Read_1MS(void)    //lee los puertos de entrada y incrementa sus contador
 void WL_TimeValidation_1MS(void)  
 {
 
-	if(	s_ButtonANTIPINCH.ub_ButtonTimeHigh > TIME_VALIDATION_BUTTON_ANTIPINCH) 
+	if(	s_ButtonANTIPINCH.uw_ButtonTimeHigh > TIME_VALIDATION_BUTTON_ANTIPINCH) 
 	{
 		ub_Functionality = FUNCTIONALITY_ANTIPINCH;	
 	}
 	else
 	{
-		switch(ps_Button->ub_ButtonTimeHigh)
+		switch(ps_Button->uw_ButtonTimeHigh)
 		{
 		case TIME_VALIDATION_BUTTON_AUTO:
 			ub_Functionality = FUNCTIONALITY_AUTO;	 
@@ -139,13 +139,13 @@ void WL_TimeValidation_1MS(void)
 			ub_Functionality = FUNCTIONALITY_MANUAL; 
 			break;
 		default:
-			if(ps_Button->ub_ButtonTimeHigh < TIME_VALIDATION_BUTTON_AUTO)
+			if(ps_Button->uw_ButtonTimeHigh < TIME_VALIDATION_BUTTON_AUTO)
 			{
 				ub_Functionality=  FUNCTIONALITY_INVALID;
 			}
-			if(ps_Button->ub_ButtonTimeHigh > TIME_BUTTON_OVERFLOW)
+			if(ps_Button->uw_ButtonTimeHigh > TIME_BUTTON_OVERFLOW)
 			{
-				ps_Button->ub_ButtonTimeHigh--;
+				ps_Button->uw_ButtonTimeHigh--;
 			}
 			else {}
 		break;
@@ -343,7 +343,7 @@ void WL_StateFCN_ManualDOWN(void)
 
 void WL_StateFCN_ManualUP(void)
 {
-	if(s_Bar_WL.ub_Position!=0    &&  Button_GetStatus(&s_ButtonUP) )
+	if(s_Bar_WL.ub_Position!=SIZELEDBAR    &&  Button_GetStatus(&s_ButtonUP) )
 	{
 		if(uw_TimeCounter  == TIME_LED_TRANSITION )
 		{

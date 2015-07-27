@@ -105,34 +105,34 @@
  *  Critical/explanation :    [yes / No]
  **************************************************************/
 
-void LED_Init( T_LED_TYPE * pt_Led , T_UBYTE ub_ID)
+void LED_Init( T_LED_TYPE * lpt_Led , T_UBYTE lub_ID)
 {
-    *pt_Led=ub_ID;
-	GPIO_InitChannel(*pt_Led,GPIO_OUTPUT,GPIO_OPEN_DRAIN_DISABLE);  
-	GPIO_Output (*pt_Led, 0);	
+    *lpt_Led=lub_ID;
+	GPIO_InitChannel(*lpt_Led,GPIO_OUTPUT,GPIO_OPEN_DRAIN_DISABLE);  
+	GPIO_Output (*lpt_Led, 0);	
 }
 
 
 
-void LED_ON(T_LED_TYPE* pt_Led)
+void LED_ON(T_LED_TYPE* lpt_Led)
 {
-	GPIO_SetHigh(*pt_Led);
+	GPIO_SetHigh(*lpt_Led);
 }
 
-void LED_OFF(T_LED_TYPE* pt_Led)
+void LED_OFF(T_LED_TYPE* lpt_Led)
 {
-	GPIO_SetLow(*pt_Led);
+	GPIO_SetLow(*lpt_Led);
 }
 
-void LED_Toggle(T_LED_TYPE* pt_Led)
+void LED_Toggle(T_LED_TYPE* lpt_Led)
 {
-	GPIO_SetInvert(*pt_Led);
+	GPIO_SetInvert(*lpt_Led);
 }
 
 
-T_UBYTE LED_GetStatus(T_LED_TYPE* pt_Led)
+T_UBYTE LED_GetStatus(T_LED_TYPE* lpt_Led)
 {
-	return GPIO_GetStatusOutput(*pt_Led);
+	return GPIO_GetStatusOutput(*lpt_Led);
 }
 
 

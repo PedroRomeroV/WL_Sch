@@ -69,12 +69,12 @@
 typedef struct
 {
 	T_UBYTE ub_ButtonID;
-	T_UWORD ub_ButtonTimeHigh;
+	T_UWORD uw_ButtonTimeHigh;
 }S_BUTTON_TYPE; 
 
 
-extern void Button_Init(S_BUTTON_TYPE * ps_Button, T_UBYTE ub_ID);
-extern T_UBYTE Button_GetStatus(S_BUTTON_TYPE * ps_Button);
+extern void Button_Init(S_BUTTON_TYPE * lps_Button, T_UBYTE lub_ID);
+extern T_UBYTE Button_GetStatus(S_BUTTON_TYPE * lps_Button);
 
 
 

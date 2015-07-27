@@ -105,17 +105,17 @@
  *  Critical/explanation :    [yes / No]
  **************************************************************/
 
-void Button_Init( S_BUTTON_TYPE * ps_Button , T_UBYTE ub_ID )
+void Button_Init( S_BUTTON_TYPE * lps_Button , T_UBYTE lub_ID )
 {
     /* Data Port A initialization */ 
-    ps_Button->ub_ButtonID=ub_ID;
-	GPIO_InitChannel(ps_Button->ub_ButtonID,GPIO_INPUT,GPIO_OPEN_DRAIN_DISABLE);  	
+    lps_Button->ub_ButtonID=lub_ID;
+	GPIO_InitChannel(lps_Button->ub_ButtonID,GPIO_INPUT,GPIO_OPEN_DRAIN_DISABLE);  	
 }
 
 
 
-T_UBYTE Button_GetStatus(S_BUTTON_TYPE* ps_Button)
+T_UBYTE Button_GetStatus(S_BUTTON_TYPE* lps_Button)
 {
-	return GPIO_GetStatusInput(ps_Button->ub_ButtonID);
+	return GPIO_GetStatusInput(lps_Button->ub_ButtonID);
 }
 

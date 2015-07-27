@@ -16,7 +16,7 @@
 * Definition of  VARIABLEs - 
 *****************************************************************************************************/
 
-/* PIT_Callback, function to be called upon timeout of PIT channel N */
+/* PIT_Callback, function to be called upon timeout of PIT ub_Channel N */
 tCallbackFunction PIT_Callback[8];
 
 /*****************************************************************************************************
@@ -43,42 +43,42 @@ void PIT_device_init(void)
 /**
 * \brief    PIT Channel Low level configuration
 * \author   Abraham Tezmol
-* \param    uint8_t channel - Channel to be configured
+* \param    T_UBYTE ub_Channel - Channel to be configured
 * \param    tCallbackFunction Callback - Function to invoke upon PIT count to zero event
 * \return   void
 */
-void PIT_channel_configure(uint8_t channel, tCallbackFunction Callback) 
+void PIT_channel_configure(T_UBYTE ub_Channel, tCallbackFunction t_Callback) 
 {
-    PIT.CH[channel].LDVAL.R = PIT_CHANNEL_VALUE;      /* PIT1 timeout --> Refer to PIT.h file for calculations */
-    PIT_Callback[channel]   = Callback;               /* Initialize callback function */
+    PIT.CH[ub_Channel].LDVAL.R = PIT_CHANNEL_VALUE;      /* PIT1 timeout --> Refer to PIT.h file for calculations */
+    PIT_Callback[ub_Channel]   = t_Callback;               /* Initialize callback function */
     
-    /* Install Interrupt routine for this specific channel */
+    /* Install Interrupt routine for this specific ub_Channel */
     INTC_InstallINTCInterruptHandler(PIT_channel_0_isr,59,5);
 }
 
 /****************************************************************************************************/
 /**
-* \brief    PIT channel Low level Start procedure
+* \brief    PIT ub_Channel Low level Start procedure
 * \author   Abraham Tezmol
-* \param    uint8_t channel - PIT channel to start
+* \param    T_UBYTE ub_Channel - PIT ub_Channel to start
 * \return   void
 */
-void PIT_channel_start(uint8_t channel)
+void PIT_channel_start(T_UBYTE ub_Channel)
 {
-    PIT.CH[channel].TCTRL.R = 0x000000003;            /* Enable PIT1 interrupt and make PIT active to count */
+    PIT.CH[ub_Channel].TCTRL.R = 0x000000003;            /* Enable PIT1 interrupt and make PIT active to count */
 }
 
 
 /****************************************************************************************************/
 /**
-* \brief    PIT channel Low level Stop procedure
+* \brief    PIT ub_Channel Low level Stop procedure
 * \author   Abraham Tezmol
-* \param    uint8_t channel - PIT channel to stop
+* \param    T_UBYTE ub_Channel - PIT ub_Channel to stop
 * \return   void
 */
-void PIT_channel_stop(uint8_t channel)
+void PIT_channel_stop(T_UBYTE ub_Channel)
 {
-	PIT.CH[channel].TCTRL.R = 0x000000000;            /* Disable PIT channel interrupt and make PIT inactive to count */
+	PIT.CH[ub_Channel].TCTRL.R = 0x000000000;            /* Disable PIT ub_Channel interrupt and make PIT inactive to count */
 }
 
 

@@ -120,14 +120,14 @@ typedef struct
 
 
 
-void Indicator_Init(S_INDICATOR_TYPE *ps_Indicator);
-void Indicator_SetUP(S_INDICATOR_TYPE *ps_Indicator);
-void Indicator_SetDOWN(S_INDICATOR_TYPE *ps_Indicator);
-void Indicator_SetIDLE(S_INDICATOR_TYPE *ps_Indicator);
+void Indicator_Init(S_INDICATOR_TYPE *lps_Indicator);
+void Indicator_SetUP(S_INDICATOR_TYPE *lps_Indicator);
+void Indicator_SetDOWN(S_INDICATOR_TYPE *lps_Indicator);
+void Indicator_SetIDLE(S_INDICATOR_TYPE *lps_Indicator);
 
-void LEDBar_Init(S_BAR_TYPE *ps_Bar);
-void LEDBar_UP_ONE(S_BAR_TYPE *ps_Bar);
-void LEDBar_DOWN_ONE(S_BAR_TYPE *ps_Bar);
+void LEDBar_Init(S_BAR_TYPE *lps_Bar);
+void LEDBar_UP_ONE(S_BAR_TYPE *lps_Bar);
+void LEDBar_DOWN_ONE(S_BAR_TYPE *lps_Bar);
 
 
 #endif
