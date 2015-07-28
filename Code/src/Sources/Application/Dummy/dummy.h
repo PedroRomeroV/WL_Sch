@@ -29,13 +29,13 @@
 
 /*-- Function Prototypes -----------------------------------------------------*/
 
-#define TIME_LED_TRANSITION					200
+#define TIME_LED_TRANSITION					(T_UBYTE)200
 #define TIME_DELAY                          2500
 #define TIME_VALIDATION_BUTTON_AUTO			10
 #define TIME_VALIDATION_BUTTON_ANTIPINCH	9
 #define TIME_VALIDATION_BUTTON_MANUAL		500
 #define TIME_BUTTON_OVERFLOW 				TIME_VALIDATION_BUTTON_MANUAL + 50
-#define FUNCTIONALITY_INVALID				0
+#define FUNCTIONALITY_INVALID				(T_UBYTE)0
 #define FUNCTIONALITY_MANUAL				1
 #define FUNCTIONALITY_AUTO					2
 #define FUNCTIONALITY_ANTIPINCH				3

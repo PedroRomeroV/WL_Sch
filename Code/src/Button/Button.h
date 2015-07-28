@@ -36,9 +36,9 @@
 /* Types definition */
 /* typedef */
 
-#define BUTTON_UP			64
-#define BUTTON_DOWN			65
-#define BUTTON_ANTIPINCH	66
+#define BUTTON_UP			(T_UBYTE)64
+#define BUTTON_DOWN			(T_UBYTE)65
+#define BUTTON_ANTIPINCH	(T_UBYTE)66
 
 
 /*==================================================*/ 

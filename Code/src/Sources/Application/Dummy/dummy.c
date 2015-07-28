@@ -14,7 +14,7 @@
 
 /** Core modules */
 /** Variable types and common definitions */
-//#include "typedefs.h"
+
 
 /** Own headers */
 #include "dummy.h"
@@ -22,7 +22,7 @@
 #include "Components.h"
 
 /* GPIO routines prototypes */ 
-//#include "GPIO.h"
+
 
 /** Used modules */
 
@@ -66,7 +66,6 @@ S_BUTTON_TYPE s_ButtonANTIPINCH;
 S_BAR_TYPE s_Bar_WL;
 S_INDICATOR_TYPE s_Indicator; 
 E_STATES_WL e_State;
-E_STATES_WL e_PrevState;
 S_BUTTON_TYPE *ps_Button;
 T_UBYTE ub_Functionality;
 T_UWORD uw_TimeCounter;
@@ -86,7 +85,7 @@ void WL_Init(void)
 }
 
 
-void WL_Read_1MS(void)    //lee los puertos de entrada y incrementa sus contadores si son presionados , unico que asigna el puntero a boton
+void WL_Read_1MS(void)    
 {
 	if( (e_State != STATE_ANTIPINCH) &&
 	(Button_GetStatus(&s_ButtonUP) ^ Button_GetStatus(&s_ButtonDOWN) ))
@@ -103,10 +102,14 @@ void WL_Read_1MS(void)    //lee los puertos de entrada y incrementa sus contador
 	}
 	else
 	{
-		s_ButtonUP.uw_ButtonTimeHigh=0;
-		s_ButtonDOWN.uw_ButtonTimeHigh=0;
+		s_ButtonUP.uw_ButtonTimeHigh=(T_UWORD)0;
+		s_ButtonDOWN.uw_ButtonTimeHigh=(T_UWORD)0;
+		if(	Button_GetStatus(&s_ButtonUP) && Button_GetStatus(&s_ButtonDOWN) )
+		{
+			e_State = STATE_IDLE;
+		}
 	}
-	if( e_State == STATE_UP_AUTO ||  e_State == STATE_UP_MANUAL )
+	if( (e_State == STATE_UP_AUTO) ||  (e_State == STATE_UP_MANUAL ) ) 
 	{
 		if(Button_GetStatus(&s_ButtonANTIPINCH))
 		{
@@ -158,7 +161,6 @@ void WL_TimeValidation_1MS(void)
 
 void WL_StateManager_2MS(void)    //if valid button 
 {
-	e_PrevState=e_State;
 	if(ub_Functionality == FUNCTIONALITY_AUTO )
 	{
 		if(e_State == STATE_IDLE  )  
@@ -245,7 +247,7 @@ void WL_StateResponse_2MS(void)
 
 void WL_StateFCN_IDLE(void)
 {
-	uw_TimeCounter=TIME_LED_TRANSITION;
+//	uw_TimeCounter=TIME_LED_TRANSITION;
 	Indicator_SetIDLE(&s_Indicator);
 }
 
@@ -325,7 +327,7 @@ void WL_StateFCN_AutoDOWN(void)
 
 void WL_StateFCN_ManualDOWN(void)
 {
-	if(s_Bar_WL.ub_Position!=0    &&  Button_GetStatus(&s_ButtonDOWN) )
+	if(s_Bar_WL.ub_Position!=0    &&  Button_GetStatus(&s_ButtonDOWN) && !Button_GetStatus(&s_ButtonUP))
 	{
 		if(uw_TimeCounter  == TIME_LED_TRANSITION )
 		{
@@ -343,7 +345,7 @@ void WL_StateFCN_ManualDOWN(void)
 
 void WL_StateFCN_ManualUP(void)
 {
-	if(s_Bar_WL.ub_Position!=SIZELEDBAR    &&  Button_GetStatus(&s_ButtonUP) )
+	if(s_Bar_WL.ub_Position!=SIZELEDBAR    &&  Button_GetStatus(&s_ButtonUP)  && !Button_GetStatus(&s_ButtonDOWN) )
 	{
 		if(uw_TimeCounter  == TIME_LED_TRANSITION )
 		{
