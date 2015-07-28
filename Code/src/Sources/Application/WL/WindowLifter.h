@@ -3,16 +3,16 @@
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*
-* C Include:        Button.h
+* C Include:        WindowLifter.h
 * Instance:         RPL_1
 * %version:         1 
 * %created_by:      Pedro Romero Vargas
 * %date_created:    Fri JUL 24  07:41:01 2015 
 *=============================================================================*/
-/* DESCRIPTION : Header file Button Driver                                    */
+/* DESCRIPTION : Header file Window Lifter contais all the functionaliy       */
 /*============================================================================*/
-/* FUNCTION COMMENT : contains  typedef T_BUTTON_TYPE which are exported      */
-/* and prototype of Button Functios                                           */
+/* FUNCTION COMMENT : contains functions which are exported to the scheduler  */
+/* task to acomplish the simlation of a windows                               */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
@@ -22,12 +22,12 @@
 /* Integration under Continuus CM                                             */
 /*============================================================================*/
 
-#ifndef BUTTON_H                               /* To avoid double inclusion */
-#define BUTTON_H
+#ifndef WL_H                               /* To avoid double inclusion */
+#define WL_H
 
 /* Includes */
 /* -------- */
-#include "typedefs.h"
+
 
 /* Exported types and constants */
 /* ---------------------------- */
@@ -36,13 +36,16 @@
 /* typedef */
 
 
-/* Button */
-typedef struct
+typedef enum
 {
-	T_UBYTE ub_ButtonID;
-	T_UWORD uw_ButtonTimeHigh;
-}S_BUTTON_TYPE; 
-
+	STATE_IDLE,
+	STATE_UP_AUTO,
+	STATE_UP_MANUAL,
+	STATE_DOWN_AUTO,
+	STATE_DOWN_MANUAL,
+	STATE_ANTIPINCH,
+	STATE_BLOCK
+}E_STATES_WL;
 
 
 /*======================================================*/ 
@@ -52,23 +55,52 @@ typedef struct
 /* Exported functions prototypes and macros */
 /* ---------------------------------------- */
 
-
 /* Functions prototypes */
 
-extern void Button_Init(S_BUTTON_TYPE * lps_Button, T_UBYTE lub_ID);
 
-extern T_UBYTE Button_GetStatus(S_BUTTON_TYPE * lps_Button);
+extern void WL_Init(void);
+extern void WL_Read_1MS(void);
+extern void WL_TimeValidation_1MS(void);
+extern void WL_StateManager_2MS(void);
+extern void WL_StateResponse_2MS(void);
+static void WL_StateFCN_AutoDOWN(void);
+static void WL_StateFCN_AutoUP(void);
+static void WL_StateFCN_ManualDOWN(void);
+static void WL_StateFCN_ManualUP(void);
+static void WL_StateFCN_Antipinch(void);
+static void WL_StateFCN_IDLE(void);
+static void WL_StateFCN_Block(void);
+
+
 
 
 /* Exported defines */
-#define BUTTON_UP			(T_UBYTE)64
-#define BUTTON_DOWN			(T_UBYTE)65
-#define BUTTON_ANTIPINCH	(T_UBYTE)66
 
+#define TIME_LED_TRANSITION					200
+#define TIME_DELAY                          2500
+#define TIME_VALIDATION_BUTTON_AUTO			10
+#define TIME_VALIDATION_BUTTON_ANTIPINCH	10
+#define TIME_VALIDATION_BUTTON_MANUAL		500
+#define TIME_BUTTON_OVERFLOW 				(TIME_VALIDATION_BUTTON_MANUAL + 50)
 
+#define FUNCTIONALITY_INVALID				0
+#define FUNCTIONALITY_MANUAL				1
+#define FUNCTIONALITY_AUTO					2
+#define FUNCTIONALITY_ANTIPINCH				3
 
-
+#define OPEN                                0
+#define CLOSE								10
 
 #endif
+
+
+
+
+
+
+
+
+
+
 
 

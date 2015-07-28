@@ -48,55 +48,50 @@ Link map of __start
     3] enableIrq (func,global) found in IntcInterrupts.o 
     3] SchedulerConfig (object,global) found in SchM_Cfg.o 
      4] SchedulerTaskTableConfig (object,global) found in SchM_Cfg.o 
-      5] SchM_Task_3P125MS (func,global) found in SchM_Tasks.o 
-       6] @LOCAL@SchM_Task_3P125MS__Fv@rub_Init (object,local) found in SchM_Tasks.o 
-       6] WL_Init (func,global) found in dummy.o 
-        7] e_State (object,global) found in dummy.o 
-        7] s_ButtonUP (object,global) found in dummy.o 
+      5] SchM_Task_1MS (func,global) found in SchM_Tasks.o 
+       6] @LOCAL@SchM_Task_1MS__Fv@rub_Init (object,local) found in SchM_Tasks.o 
+       6] WL_Init (func,global) found in WindowLifter.o 
+        7] e_State (object,global) found in WindowLifter.o 
+        7] s_ButtonUP (object,global) found in WindowLifter.o 
         7] Button_Init (func,global) found in Button.o 
          8] GPIO_InitChannel (func,global) found in GPIO.o 
-        7] s_ButtonDOWN (object,global) found in dummy.o 
-        7] s_ButtonANTIPINCH (object,global) found in dummy.o 
-        7] s_Bar_WL (object,global) found in dummy.o 
-        7] LEDBar_Init (func,global) found in Components.o 
-         8] cat_LEDBAR_PORT (object,global) found in Components.o 
-         8] LED_Init (func,global) found in Leds.o 
+        7] s_ButtonDOWN (object,global) found in WindowLifter.o 
+        7] s_ButtonANTIPINCH (object,global) found in WindowLifter.o 
+        7] s_Bar_WL (object,global) found in WindowLifter.o 
+        7] LEDBar_Init (func,global) found in LEDBar.o 
+         8] cat_LEDBAR_PORT (object,global) found in LEDBar.o 
+         8] LED_Init (func,global) found in LED.o 
           9] GPIO_Output (func,global) found in GPIO.o 
-        7] s_Indicator (object,global) found in dummy.o 
-        7] Indicator_Init (func,global) found in Components.o 
-        7] ub_Functionality (object,global) found in dummy.o 
-        7] uw_TimeCounter (object,global) found in dummy.o 
-       6] WL_Read_1ms (func,global) found in dummy.o 
-        7] ps_Button (object,global) found in dummy.o 
+        7] s_Indicator (object,global) found in WindowLifter.o 
+        7] Indicator_Init (func,global) found in Indicator.o 
+        7] ub_Functionality (object,global) found in WindowLifter.o 
+        7] uw_TimeCounter (object,global) found in WindowLifter.o 
+       6] WL_Read_1MS (func,global) found in WindowLifter.o 
+        7] ps_Button (object,global) found in WindowLifter.o 
         7] Button_GetStatus (func,global) found in Button.o 
          8] GPIO_GetStatusInput (func,global) found in GPIO.o 
-       6] WL_TimeValidation_1ms (func,global) found in dummy.o 
-      5] SchM_Task_6P25MS (func,global) found in SchM_Tasks.o 
-       6] WL_StateManager_2ms (func,global) found in dummy.o 
-        7] e_PrevState (object,global) found in dummy.o 
-       6] WL_StateResponse_2ms (func,global) found in dummy.o 
-        7] @99 (object,local) found in dummy.o 
-        7] WL_StateFCN_Block (func,local) found in dummy.o 
-         8] Indicator_SetIDLE (func,global) found in Components.o 
-          9] LED_OFF (func,global) found in Leds.o 
+       6] WL_TimeValidation_1MS (func,global) found in WindowLifter.o 
+      5] SchM_Task_2MS (func,global) found in SchM_Tasks.o 
+       6] WL_StateManager_2MS (func,global) found in WindowLifter.o 
+       6] WL_StateResponse_2MS (func,global) found in WindowLifter.o 
+        7] @104 (object,local) found in WindowLifter.o 
+        7] WL_StateFCN_Block (func,local) found in WindowLifter.o 
+         8] Indicator_SetIDLE (func,global) found in Indicator.o 
+          9] LED_OFF (func,global) found in LED.o 
            10] GPIO_SetLow (func,global) found in GPIO.o 
-        7] WL_StateFCN_IDLE (func,local) found in dummy.o 
-        7] WL_StateFCN_Antipinch (func,local) found in dummy.o 
-         8] @LOCAL@WL_StateFCN_Antipinch__Fv@ruw_TimeDelay (object,local) found in dummy.o 
-         8] LEDBar_DOWN_ONE (func,global) found in Components.o 
-         8] Indicator_SetDOWN (func,global) found in Components.o 
-          9] LED_ON (func,global) found in Leds.o 
+        7] WL_StateFCN_IDLE (func,local) found in WindowLifter.o 
+        7] WL_StateFCN_Antipinch (func,local) found in WindowLifter.o 
+         8] @LOCAL@WL_StateFCN_Antipinch__Fv@ruw_TimeDelay (object,local) found in WindowLifter.o 
+         8] LEDBar_DOWN_ONE (func,global) found in LEDBar.o 
+         8] Indicator_SetDOWN (func,global) found in Indicator.o 
+          9] LED_ON (func,global) found in LED.o 
            10] GPIO_SetHigh (func,global) found in GPIO.o 
-        7] WL_StateFCN_AutoUP (func,local) found in dummy.o 
-         8] LEDBar_UP_ONE (func,global) found in Components.o 
-         8] Indicator_SetUP (func,global) found in Components.o 
-        7] WL_StateFCN_ManualUP (func,local) found in dummy.o 
-        7] WL_StateFCN_AutoDOWN (func,local) found in dummy.o 
-        7] WL_StateFCN_ManualDOWN (func,local) found in dummy.o 
-      5] SchM_Task_12P5MS (func,global) found in SchM_Tasks.o 
-      5] SchM_Task_25MS (func,global) found in SchM_Tasks.o 
-      5] SchM_Task_50MS (func,global) found in SchM_Tasks.o 
-      5] SchM_Task_100MS (func,global) found in SchM_Tasks.o 
+        7] WL_StateFCN_AutoUP (func,local) found in WindowLifter.o 
+         8] LEDBar_UP_ONE (func,global) found in LEDBar.o 
+         8] Indicator_SetUP (func,global) found in Indicator.o 
+        7] WL_StateFCN_ManualUP (func,local) found in WindowLifter.o 
+        7] WL_StateFCN_AutoDOWN (func,local) found in WindowLifter.o 
+        7] WL_StateFCN_ManualDOWN (func,local) found in WindowLifter.o 
     3] SchM_Init (func,global) found in SchM.o 
      4] rpt_SchedulerTaskControl (object,global) found in SchM.o 
      4] cpt_SchedulerConfig (object,global) found in SchM.o 
@@ -144,25 +139,27 @@ Link map of __start
     3] .ivor_branch_table (section,local) found in ivor_branch_table.o 
     3] .ivor_branch_table.24 (notype,local) found in ivor_branch_table.o 
     3] .text (section,local) found in main.o 
-    3] .text.60 (notype,local) found in main.o 
+    3] .text.53 (notype,local) found in main.o 
     3] .text (section,local) found in pll.o 
     3] .text.23 (notype,local) found in pll.o 
-    3] .text (section,local) found in dummy.o 
-    3] .text.169 (notype,local) found in dummy.o 
     3] .text (section,local) found in PIT.o 
     3] .text.45 (notype,local) found in PIT.o 
     3] .text (section,local) found in GPIO.o 
     3] .text.61 (notype,local) found in GPIO.o 
     3] .text (section,local) found in SchM_Tasks.o 
-    3] .text.39 (notype,local) found in SchM_Tasks.o 
+    3] .text.38 (notype,local) found in SchM_Tasks.o 
     3] .text (section,local) found in SchM.o 
-    3] .text.82 (notype,local) found in SchM.o 
-    3] .text (section,local) found in Leds.o 
-    3] .text.57 (notype,local) found in Leds.o 
+    3] .text.81 (notype,local) found in SchM.o 
     3] .text (section,local) found in Button.o 
     3] .text.34 (notype,local) found in Button.o 
-    3] .text (section,local) found in Components.o 
-    3] .text.78 (notype,local) found in Components.o 
+    3] .text (section,local) found in LED.o 
+    3] .text.57 (notype,local) found in LED.o 
+    3] .text (section,local) found in LEDBar.o 
+    3] .text.45 (notype,local) found in LEDBar.o 
+    3] .text (section,local) found in Indicator.o 
+    3] .text.44 (notype,local) found in Indicator.o 
+    3] .text (section,local) found in WindowLifter.o 
+    3] .text.176 (notype,local) found in WindowLifter.o 
     3] .init (section,local) found in Runtime.PPCEABI.VS.UC.a __start.o
     3] .init.130 (notype,local) found in Runtime.PPCEABI.VS.UC.a __start.o
     3] .text (section,local) found in Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
@@ -265,79 +262,81 @@ Link map of __start
   00000172 000004 00002172 00000a22  2 Function1 	main.o 
   00000176 00003c 00002176 00000a26  2 main 	main.o 
   000001b2 00004a 000021b2 00000a62  2 BackgroundSubsystemTasks 	main.o 
-  000001fc 000000 000021fc 00000aac  1 .text.60 	main.o 
+  000001fc 000000 000021fc 00000aac  1 .text.53 	main.o 
   000001fc 000088 000021fc 00000aac  1 .text 	pll.o 
   000001fc 000088 000021fc 00000aac  2 initModesAndClock 	pll.o 
   UNUSED   00000c ........ ........    initPeriClkGen pll.o 
   00000284 000000 00002284 00000b34  1 .text.23 	pll.o 
-  00000284 00049c 00002284 00000b34  1 .text 	dummy.o 
-  00000284 00005c 00002284 00000b34  2 WL_Init 	dummy.o 
-  000002e0 0000c4 000022e0 00000b90  2 WL_Read_1ms 	dummy.o 
-  000003a4 000058 000023a4 00000c54  2 WL_TimeValidation_1ms 	dummy.o 
-  000003fc 000096 000023fc 00000cac  2 WL_StateManager_2ms 	dummy.o 
-  00000492 000052 00002492 00000d42  2 WL_StateResponse_2ms 	dummy.o 
-  000004e4 000020 000024e4 00000d94  2 WL_StateFCN_IDLE 	dummy.o 
-  00000504 000076 00002504 00000db4  2 WL_StateFCN_Antipinch 	dummy.o 
-  0000057a 00002e 0000257a 00000e2a  2 WL_StateFCN_Block 	dummy.o 
-  000005a8 000056 000025a8 00000e58  2 WL_StateFCN_AutoUP 	dummy.o 
-  000005fe 000056 000025fe 00000eae  2 WL_StateFCN_AutoDOWN 	dummy.o 
-  00000654 000066 00002654 00000f04  2 WL_StateFCN_ManualDOWN 	dummy.o 
-  000006ba 000066 000026ba 00000f6a  2 WL_StateFCN_ManualUP 	dummy.o 
-  00000720 000000 00002720 00000fd0  1 .text.169 	dummy.o 
-  00000720 0000d0 00002720 00000fd0  1 .text 	PIT.o 
-  00000720 00000a 00002720 00000fd0  2 PIT_device_init 	PIT.o 
-  0000072a 00005a 0000272a 00000fda  2 PIT_channel_configure 	PIT.o 
-  00000784 000018 00002784 00001034  2 PIT_channel_start 	PIT.o 
+  00000284 0000cc 00002284 00000b34  1 .text 	PIT.o 
+  00000284 00000a 00002284 00000b34  2 PIT_device_init 	PIT.o 
+  0000028e 000056 0000228e 00000b3e  2 PIT_channel_configure 	PIT.o 
+  000002e4 000018 000022e4 00000b94  2 PIT_channel_start 	PIT.o 
   UNUSED   000018 ........ ........    PIT_channel_stop PIT.o 
-  0000079c 000054 0000279c 0000104c  2 PIT_channel_0_isr 	PIT.o 
-  000007f0 000000 000027f0 000010a0  1 .text.45 	PIT.o 
-  000007f0 000144 000027f0 000010a0  1 .text 	GPIO.o 
-  000007f0 0000d2 000027f0 000010a0  2 GPIO_InitChannel 	GPIO.o 
-  000008c2 00001e 000028c2 00001172  2 GPIO_Output 	GPIO.o 
-  000008e0 00001c 000028e0 00001190  2 GPIO_SetHigh 	GPIO.o 
-  000008fc 00001c 000028fc 000011ac  2 GPIO_SetLow 	GPIO.o 
+  000002fc 000054 000022fc 00000bac  2 PIT_channel_0_isr 	PIT.o 
+  00000350 000000 00002350 00000c00  1 .text.45 	PIT.o 
+  00000350 000140 00002350 00000c00  1 .text 	GPIO.o 
+  00000350 0000d2 00002350 00000c00  2 GPIO_InitChannel 	GPIO.o 
+  00000422 00001a 00002422 00000cd2  2 GPIO_Output 	GPIO.o 
+  0000043c 00001c 0000243c 00000cec  2 GPIO_SetHigh 	GPIO.o 
+  00000458 00001c 00002458 00000d08  2 GPIO_SetLow 	GPIO.o 
   UNUSED   000026 ........ ........    GPIO_SetInvert GPIO.o 
   UNUSED   000016 ........ ........    GPIO_GetStatusOutput GPIO.o 
-  00000918 00001c 00002918 000011c8  2 GPIO_GetStatusInput 	GPIO.o 
-  00000934 000000 00002934 000011e4  1 .text.61 	GPIO.o 
-  00000934 00004c 00002934 000011e4  1 .text 	SchM_Tasks.o 
-  00000934 00002c 00002934 000011e4  2 SchM_Task_3P125MS 	SchM_Tasks.o 
-  00000960 000018 00002960 00001210  2 SchM_Task_6P25MS 	SchM_Tasks.o 
-  00000978 000002 00002978 00001228  2 SchM_Task_12P5MS 	SchM_Tasks.o 
-  0000097a 000002 0000297a 0000122a  2 SchM_Task_25MS 	SchM_Tasks.o 
-  0000097c 000002 0000297c 0000122c  2 SchM_Task_50MS 	SchM_Tasks.o 
-  0000097e 000002 0000297e 0000122e  2 SchM_Task_100MS 	SchM_Tasks.o 
-  00000980 000000 00002980 00001230  1 .text.39 	SchM_Tasks.o 
-  00000980 0001dc 00002980 00001230  1 .text 	SchM.o 
-  00000980 000078 00002980 00001230  2 SchM_OsTick 	SchM.o 
-  000009f8 0000a0 000029f8 000012a8  2 SchM_Background 	SchM.o 
-  00000a98 0000a0 00002a98 00001348  2 SchM_Init 	SchM.o 
+  00000474 00001c 00002474 00000d24  2 GPIO_GetStatusInput 	GPIO.o 
+  00000490 000000 00002490 00000d40  1 .text.61 	GPIO.o 
+  00000490 000044 00002490 00000d40  1 .text 	SchM_Tasks.o 
+  00000490 00002c 00002490 00000d40  2 SchM_Task_1MS 	SchM_Tasks.o 
+  000004bc 000018 000024bc 00000d6c  2 SchM_Task_2MS 	SchM_Tasks.o 
+  UNUSED   000002 ........ ........    SchM_Task_4MS SchM_Tasks.o 
+  UNUSED   000002 ........ ........    SchM_Task_8MS SchM_Tasks.o 
+  UNUSED   000002 ........ ........    SchM_Task_16MS SchM_Tasks.o 
+  UNUSED   000002 ........ ........    SchM_Task_32MS SchM_Tasks.o 
+  000004d4 000000 000024d4 00000d84  1 .text.38 	SchM_Tasks.o 
+  000004d4 0001dc 000024d4 00000d84  1 .text 	SchM.o 
+  000004d4 000078 000024d4 00000d84  2 SchM_OsTick 	SchM.o 
+  0000054c 0000a0 0000254c 00000dfc  2 SchM_Background 	SchM.o 
+  000005ec 0000a0 000025ec 00000e9c  2 SchM_Init 	SchM.o 
   UNUSED   000020 ........ ........    SchM_Stop SchM.o 
-  00000b38 000024 00002b38 000013e8  2 SchM_Start 	SchM.o 
-  00000b5c 000000 00002b5c 0000140c  1 .text.82 	SchM.o 
-  00000b5c 00007a 00002b5c 0000140c  1 .text 	Leds.o 
-  00000b5c 000042 00002b5c 0000140c  2 LED_Init 	Leds.o 
-  00000b9e 00001c 00002b9e 0000144e  2 LED_ON 	Leds.o 
-  00000bba 00001c 00002bba 0000146a  2 LED_OFF 	Leds.o 
-  UNUSED   00001c ........ ........    LED_Toggle Leds.o 
-  UNUSED   00001c ........ ........    LED_GetStatus Leds.o 
-  00000bd6 000000 00002bd6 00001486  1 .text.57 	Leds.o 
-  00000bd6 000050 00002bd6 00001486  1 .text 	Button.o 
-  00000bd6 000034 00002bd6 00001486  2 Button_Init 	Button.o 
-  00000c0a 00001c 00002c0a 000014ba  2 Button_GetStatus 	Button.o 
-  00000c26 000000 00002c26 000014d6  1 .text.34 	Button.o 
-  00000c26 00014c 00002c26 000014d6  1 .text 	Components.o 
-  00000c26 00002c 00002c26 000014d6  2 Indicator_Init 	Components.o 
-  00000c52 000024 00002c52 00001502  2 Indicator_SetUP 	Components.o 
-  00000c76 000024 00002c76 00001526  2 Indicator_SetDOWN 	Components.o 
-  00000c9a 000024 00002c9a 0000154a  2 Indicator_SetIDLE 	Components.o 
-  00000cbe 000060 00002cbe 0000156e  2 LEDBar_Init 	Components.o 
-  00000d1e 00002a 00002d1e 000015ce  2 LEDBar_UP_ONE 	Components.o 
-  00000d48 00002a 00002d48 000015f8  2 LEDBar_DOWN_ONE 	Components.o 
-  00000d72 000000 00002d72 00001622  1 .text.78 	Components.o 
-  00000d72 00003a 00002d72 00001622  1 .text 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
-  00000d72 00001e 00002d72 00001622  2 __register_fragment 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
-  00000d90 00001c 00002d90 00001640  2 __unregister_fragment 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  0000068c 000024 0000268c 00000f3c  2 SchM_Start 	SchM.o 
+  000006b0 000000 000026b0 00000f60  1 .text.81 	SchM.o 
+  000006b0 00004c 000026b0 00000f60  1 .text 	Button.o 
+  000006b0 000030 000026b0 00000f60  2 Button_Init 	Button.o 
+  000006e0 00001c 000026e0 00000f90  2 Button_GetStatus 	Button.o 
+  000006fc 000000 000026fc 00000fac  1 .text.34 	Button.o 
+  000006fc 000072 000026fc 00000fac  1 .text 	LED.o 
+  000006fc 00003a 000026fc 00000fac  2 LED_Init 	LED.o 
+  00000736 00001c 00002736 00000fe6  2 LED_ON 	LED.o 
+  00000752 00001c 00002752 00001002  2 LED_OFF 	LED.o 
+  UNUSED   00001c ........ ........    LED_Toggle LED.o 
+  UNUSED   00001c ........ ........    LED_GetStatus LED.o 
+  0000076e 000000 0000276e 0000101e  1 .text.57 	LED.o 
+  0000076e 0000b4 0000276e 0000101e  1 .text 	LEDBar.o 
+  0000076e 000060 0000276e 0000101e  2 LEDBar_Init 	LEDBar.o 
+  000007ce 00002a 000027ce 0000107e  2 LEDBar_UP_ONE 	LEDBar.o 
+  000007f8 00002a 000027f8 000010a8  2 LEDBar_DOWN_ONE 	LEDBar.o 
+  00000822 000000 00002822 000010d2  1 .text.45 	LEDBar.o 
+  00000822 000098 00002822 000010d2  1 .text 	Indicator.o 
+  00000822 00002c 00002822 000010d2  2 Indicator_Init 	Indicator.o 
+  0000084e 000024 0000284e 000010fe  2 Indicator_SetUP 	Indicator.o 
+  00000872 000024 00002872 00001122  2 Indicator_SetDOWN 	Indicator.o 
+  00000896 000024 00002896 00001146  2 Indicator_SetIDLE 	Indicator.o 
+  000008ba 000000 000028ba 0000116a  1 .text.44 	Indicator.o 
+  000008ba 0004da 000028ba 0000116a  1 .text 	WindowLifter.o 
+  000008ba 00005a 000028ba 0000116a  2 WL_Init 	WindowLifter.o 
+  00000914 0000f2 00002914 000011c4  2 WL_Read_1MS 	WindowLifter.o 
+  00000a06 000058 00002a06 000012b6  2 WL_TimeValidation_1MS 	WindowLifter.o 
+  00000a5e 000090 00002a5e 0000130e  2 WL_StateManager_2MS 	WindowLifter.o 
+  00000aee 000052 00002aee 0000139e  2 WL_StateResponse_2MS 	WindowLifter.o 
+  00000b40 000018 00002b40 000013f0  2 WL_StateFCN_IDLE 	WindowLifter.o 
+  00000b58 000076 00002b58 00001408  2 WL_StateFCN_Antipinch 	WindowLifter.o 
+  00000bce 00002e 00002bce 0000147e  2 WL_StateFCN_Block 	WindowLifter.o 
+  00000bfc 000056 00002bfc 000014ac  2 WL_StateFCN_AutoUP 	WindowLifter.o 
+  00000c52 000056 00002c52 00001502  2 WL_StateFCN_AutoDOWN 	WindowLifter.o 
+  00000ca8 000076 00002ca8 00001558  2 WL_StateFCN_ManualDOWN 	WindowLifter.o 
+  00000d1e 000076 00002d1e 000015ce  2 WL_StateFCN_ManualUP 	WindowLifter.o 
+  00000d94 000000 00002d94 00001644  1 .text.176 	WindowLifter.o 
+  00000d94 00003a 00002d94 00001644  1 .text 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  00000d94 00001e 00002d94 00001644  2 __register_fragment 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  00000db2 00001c 00002db2 00001662  2 __unregister_fragment 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
   UNUSED   00005a ........ ........    ExPPC_FindExceptionFragment__FPcP12FragmentInfo Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
   UNUSED   0000e2 ........ ........    ExPPC_FindExceptionRecord__FPcP15MWExceptionInfo Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
   UNUSED   000006 ........ ........    ExPPC_PopR31__FPcP15MWExceptionInfo Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
@@ -380,9 +379,9 @@ Link map of __start
   UNUSED   000086 ........ ........    __uncaught_exception_helper__FP12ThrowContext Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
   UNUSED   000028 ........ ........    __uncaught_exception Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
   UNUSED   00000a ........ ........    what__Q23std13bad_exceptionCFv Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
-  00000dac 000000 00002dac 0000165c  1 .text.1683 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
-  00000dac 000064 00002dac 0000165c  1 .text 	Runtime.PPCEABI.VS.UC.a runtime.o
-  00000dac 00004a 00002dac 0000165c  2 __save_gpr 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00000dce 000000 00002dce 0000167e  1 .text.1683 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  00000dce 000064 00002dce 0000167e  1 .text 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00000dce 00004a 00002dce 0000167e  2 __save_gpr 	Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000000 ........ ........    _savegpr_14 Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000000 ........ ........    _save32gpr_14 Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000000 ........ ........    _savegpr_15 Runtime.PPCEABI.VS.UC.a runtime.o
@@ -415,7 +414,7 @@ Link map of __start
   UNUSED   000000 ........ ........    _save32gpr_28 Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000000 ........ ........    _savegpr_29 Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000000 ........ ........    _save32gpr_29 Runtime.PPCEABI.VS.UC.a runtime.o
-  00000dec 000000 00002dec 0000169c    _savegpr_30 (entry of __save_gpr) 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00000e0e 000000 00002e0e 000016be    _savegpr_30 (entry of __save_gpr) 	Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000000 ........ ........    _save32gpr_30 Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000000 ........ ........    _savegpr_31 Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000000 ........ ........    _save32gpr_31 Runtime.PPCEABI.VS.UC.a runtime.o
@@ -456,11 +455,11 @@ Link map of __start
   UNUSED   000000 ........ ........    _rest32gpr_30 Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000000 ........ ........    _restgpr_31 Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000000 ........ ........    _rest32gpr_31 Runtime.PPCEABI.VS.UC.a runtime.o
-  00000df6 000008 00002df6 000016a6  2 __restore_frame_and_exit 	Runtime.PPCEABI.VS.UC.a runtime.o
-  00000df8 000000 00002df8 000016a8    __finish_restore_frame_and_exit2 (entry of __restore_frame_and_exit) 	Runtime.PPCEABI.VS.UC.a runtime.o
-  00000dfe 00000a 00002dfe 000016ae  2 __restore_gpr_31_exit 	Runtime.PPCEABI.VS.UC.a runtime.o
-  00000e04 000000 00002e04 000016b4    __finish_restore_frame_and_exit (entry of __restore_gpr_31_exit) 	Runtime.PPCEABI.VS.UC.a runtime.o
-  00000e08 000008 00002e08 000016b8  2 __restore_gpr_30_exit 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00000e18 000008 00002e18 000016c8  2 __restore_frame_and_exit 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00000e1a 000000 00002e1a 000016ca    __finish_restore_frame_and_exit2 (entry of __restore_frame_and_exit) 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00000e20 00000a 00002e20 000016d0  2 __restore_gpr_31_exit 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00000e26 000000 00002e26 000016d6    __finish_restore_frame_and_exit (entry of __restore_gpr_31_exit) 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00000e2a 000008 00002e2a 000016da  2 __restore_gpr_30_exit 	Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000008 ........ ........    __restore_gpr_29_exit Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000008 ........ ........    __restore_gpr_28_exit Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   000008 ........ ........    __restore_gpr_27_exit Runtime.PPCEABI.VS.UC.a runtime.o
@@ -504,58 +503,59 @@ Link map of __start
   UNUSED   00001a ........ ........    __shl2i Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   00001a ........ ........    __shr2u Runtime.PPCEABI.VS.UC.a runtime.o
   UNUSED   00001c ........ ........    __shr2i Runtime.PPCEABI.VS.UC.a runtime.o
-  00000e10 000000 00002e10 000016c0  1 .text.205 	Runtime.PPCEABI.VS.UC.a runtime.o
-  00000e10 000050 00002e10 000016c0  1 .text 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
-  00000e10 00002e 00002e10 000016c0  2 __init_cpp_exceptions 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
-  00000e3e 000022 00002e3e 000016ee  2 __fini_cpp_exceptions 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
-  00000e60 0000d0 00002e60 00001710  1 .text 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
-  00000e60 00004c 00002e60 00001710  4 MemAllocInit 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
-  00000eac 000084 00002eac 0000175c  4 MemAlloc 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
+  00000e32 000000 00002e32 000016e2  1 .text.205 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00000e32 000050 00002e32 000016e2  1 .text 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000e32 00002e 00002e32 000016e2  2 __init_cpp_exceptions 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000e60 000022 00002e60 00001710  2 __fini_cpp_exceptions 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000e82 000002 00002e84 00001734  4 *fill*
+  00000e84 0000d0 00002e84 00001734  1 .text 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
+  00000e84 00004c 00002e84 00001734  4 MemAllocInit 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
+  00000ed0 000084 00002ed0 00001780  4 MemAlloc 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
 
 
 .rodata section layout
   Starting        Virtual  File
   address  Size   address  offset
   ---------------------------------
-  00000000 00000c 00002f30 000017e0  1 .rodata 	__ppc_eabi_init.o 
-  00000000 00000c 00002f30 000017e0  4 @22 	__ppc_eabi_init.o 
-  0000000c 000004 00002f40 000017f0  8 *fill*
-  00000010 000030 00002f40 000017f0  1 .rodata 	SchM_Cfg.o 
-  00000010 000030 00002f40 000017f0  8 SchedulerTaskTableConfig 	SchM_Cfg.o 
-  00000040 00000a 00002f70 00001820  1 .rodata 	Components.o 
-  00000040 00000a 00002f70 00001820  4 cat_LEDBAR_PORT 	Components.o 
+  00000000 00000c 00002f58 00001808  1 .rodata 	__ppc_eabi_init.o 
+  00000000 00000c 00002f58 00001808  4 @22 	__ppc_eabi_init.o 
+  0000000c 000004 00002f68 00001818  8 *fill*
+  00000010 000010 00002f68 00001818  1 .rodata 	SchM_Cfg.o 
+  00000010 000010 00002f68 00001818  8 SchedulerTaskTableConfig 	SchM_Cfg.o 
+  00000020 00000a 00002f78 00001828  1 .rodata 	LEDBar.o 
+  00000020 00000a 00002f78 00001828  4 cat_LEDBAR_PORT 	LEDBar.o 
 
 
 .ctors section layout
   Starting        Virtual  File
   address  Size   address  offset
   ---------------------------------
-  00000000 000000 00002f7c 0000182c  1 .ctors$00 	Linker Generated Symbol File 
-  00000000 000000 00002f7c 0000182c  4 _ctors 	Linker Generated Symbol File 
-  00000000 000004 00002f7c 0000182c  1 .ctors$10 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
-  00000000 000004 00002f7c 0000182c  4 __init_cpp_exceptions_reference 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
-  00000004 000004 00002f80 00001830  1 .ctors$99 	Linker Generated Symbol File 
-  00000004 000004 00002f80 00001830  4 _ctors$99 	Linker Generated Symbol File 
+  00000000 000000 00002f84 00001834  1 .ctors$00 	Linker Generated Symbol File 
+  00000000 000000 00002f84 00001834  4 _ctors 	Linker Generated Symbol File 
+  00000000 000004 00002f84 00001834  1 .ctors$10 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000000 000004 00002f84 00001834  4 __init_cpp_exceptions_reference 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000004 000004 00002f88 00001838  1 .ctors$99 	Linker Generated Symbol File 
+  00000004 000004 00002f88 00001838  4 _ctors$99 	Linker Generated Symbol File 
 
 
 .dtors section layout
   Starting        Virtual  File
   address  Size   address  offset
   ---------------------------------
-  00000000 000000 00002f84 00001834  1 .dtors$00 	Linker Generated Symbol File 
-  00000000 000000 00002f84 00001834  4 _dtors 	Linker Generated Symbol File 
-  00000000 000004 00002f84 00001834  1 .dtors$15 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
-  00000000 000004 00002f84 00001834  4 __fini_cpp_exceptions_reference 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
-  00000004 000004 00002f88 00001838  1 .dtors$99 	Linker Generated Symbol File 
-  00000004 000004 00002f88 00001838  4 _dtors$99 	Linker Generated Symbol File 
+  00000000 000000 00002f8c 0000183c  1 .dtors$00 	Linker Generated Symbol File 
+  00000000 000000 00002f8c 0000183c  4 _dtors 	Linker Generated Symbol File 
+  00000000 000004 00002f8c 0000183c  1 .dtors$15 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000000 000004 00002f8c 0000183c  4 __fini_cpp_exceptions_reference 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000004 000004 00002f90 00001840  1 .dtors$99 	Linker Generated Symbol File 
+  00000004 000004 00002f90 00001840  4 _dtors$99 	Linker Generated Symbol File 
 
 
 extab section layout
   Starting        Virtual  File
   address  Size   address  offset
   ---------------------------------
-  00000000 000008 00002f8c 0000183c  1 extab 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
-  00000000 000008 00002f8c 0000183c  4 @14 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
+  00000000 000008 00002f94 00001844  1 extab 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
+  00000000 000008 00002f94 00001844  4 @14 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
 
 
 extabindex section layout
@@ -576,8 +576,8 @@ extabindex section layout
   Starting        Virtual  File
   address  Size   address  offset
   ---------------------------------
-  00000000 00001c 40001340 00002000  1 .data 	dummy.o 
-  00000000 00001c 40001340 00002000  4 @99 	dummy.o 
+  00000000 00001c 40001340 00002000  1 .data 	WindowLifter.o 
+  00000000 00001c 40001340 00002000  4 @104 	WindowLifter.o 
 
 
 .sdata section layout
@@ -588,7 +588,7 @@ extabindex section layout
   00000000 000001 40001360 00002020  1 rub_Var1 	main.o 
   00000001 000007 40001368 00002028  8 *fill*
   00000008 000001 40001368 00002028  1 .sdata 	SchM_Tasks.o 
-  00000008 000001 40001368 00002028  1 @LOCAL@SchM_Task_3P125MS__Fv@rub_Init 	SchM_Tasks.o 
+  00000008 000001 40001368 00002028  1 @LOCAL@SchM_Task_1MS__Fv@rub_Init 	SchM_Tasks.o 
   00000009 000007 40001370 00002030  8 *fill*
   00000010 000004 40001370 00002030  1 .sdata 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
   00000010 000004 40001370 00002030  4 fragmentID 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
@@ -603,22 +603,22 @@ extabindex section layout
   00000004 000001 4000137c 0000203c  1 rub_Var2 	main.o 
   00000008 000004 40001380 00002040  4 rpfu_PtrToFctn 	main.o 
   0000000c 000004 40001388 00002048  8 *fill*
-  00000010 000020 40001388 00002048  1 .sbss 	dummy.o 
-  00000010 000002 40001388 00002048  2 @LOCAL@WL_StateFCN_Antipinch__Fv@ruw_TimeDelay 	dummy.o 
-  00000012 000002 4000138a 0000204a  2 uw_TimeCounter 	dummy.o 
-  00000014 000001 4000138c 0000204c  1 ub_Functionality 	dummy.o 
-  00000018 000004 40001390 00002050  4 ps_Button 	dummy.o 
-  0000001c 000001 40001394 00002054  1 e_PrevState 	dummy.o 
-  0000001d 000001 40001395 00002055  1 e_State 	dummy.o 
-  00000020 000002 40001398 00002058  4 s_Indicator 	dummy.o 
-  00000024 000004 4000139c 0000205c  4 s_ButtonANTIPINCH 	dummy.o 
-  00000028 000004 400013a0 00002060  4 s_ButtonDOWN 	dummy.o 
-  0000002c 000004 400013a4 00002064  4 s_ButtonUP 	dummy.o 
-  00000030 00000b 400013a8 00002068  1 .sbss 	SchM.o 
-  00000030 000004 400013a8 00002068  4 cpt_SchedulerConfig 	SchM.o 
-  00000034 000004 400013ac 0000206c  4 rpt_SchedulerTaskControl 	SchM.o 
-  00000038 000003 400013b0 00002070  4 rt_SchedulerControl 	SchM.o 
-  0000003b 000005 400013b8 00002078  8 *fill*
+  00000010 00000b 40001388 00002048  1 .sbss 	SchM.o 
+  00000010 000004 40001388 00002048  4 cpt_SchedulerConfig 	SchM.o 
+  00000014 000004 4000138c 0000204c  4 rpt_SchedulerTaskControl 	SchM.o 
+  00000018 000003 40001390 00002050  4 rt_SchedulerControl 	SchM.o 
+  0000001b 000005 40001398 00002058  8 *fill*
+  00000020 00001f 40001398 00002058  1 .sbss 	WindowLifter.o 
+  00000020 000002 40001398 00002058  2 @LOCAL@WL_StateFCN_Antipinch__Fv@ruw_TimeDelay 	WindowLifter.o 
+  00000024 000004 4000139c 0000205c  4 ps_Button 	WindowLifter.o 
+  00000028 000001 400013a0 00002060  1 e_State 	WindowLifter.o 
+  0000002c 000002 400013a4 00002064  4 s_Indicator 	WindowLifter.o 
+  00000030 000004 400013a8 00002068  4 s_ButtonANTIPINCH 	WindowLifter.o 
+  00000034 000004 400013ac 0000206c  4 s_ButtonDOWN 	WindowLifter.o 
+  00000038 000004 400013b0 00002070  4 s_ButtonUP 	WindowLifter.o 
+  0000003c 000002 400013b4 00002074  2 uw_TimeCounter 	WindowLifter.o 
+  0000003e 000001 400013b6 00002076  1 ub_Functionality 	WindowLifter.o 
+  0000003f 000001 400013b8 00002078  8 *fill*
   00000040 000004 400013b8 00002078  1 .sbss 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
   00000040 000004 400013b8 00002078  4 MemAllocConfigGlobPtr 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
 
@@ -643,11 +643,11 @@ extabindex section layout
   Starting        Virtual  File
   address  Size   address  offset
   ---------------------------------
-  00000000 00000b 400013d0 00002048  1 .bss 	dummy.o 
-  00000000 00000b 400013d0 00002048  4 s_Bar_WL 	dummy.o 
-  0000000b 000005 400013e0 00002058  8 *fill*
-  00000010 000020 400013e0 00002058  1 .bss 	PIT.o 
-  00000010 000020 400013e0 00002058  8 PIT_Callback 	PIT.o 
+  00000000 000020 400013d0 00002048  1 .bss 	PIT.o 
+  00000000 000020 400013d0 00002048  8 PIT_Callback 	PIT.o 
+  00000020 00000b 400013f0 00002068  1 .bss 	WindowLifter.o 
+  00000020 00000b 400013f0 00002068  4 s_Bar_WL 	WindowLifter.o 
+  0000002b 000005 40001400 00002078  8 *fill*
   00000030 00000c 40001400 00002078  1 .bss 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
   00000030 00000c 40001400 00002078  4 fragmentinfo 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
   0000003c 000004 40001410 00002088  8 *fill*
@@ -659,8 +659,8 @@ extabindex section layout
   Starting        Virtual  File
   address  Size   address  offset
   ---------------------------------
-  00000000 00000c 00002f94 00001870  4 @15 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
-  0000000c 000020 00002fa0 00001870  4 _eti_init_info 	Linker Generated Symbol File 
+  00000000 00000c 00002f9c 00001878  4 @15 	MemAlloc.a D:\p\uid87753\Documents\AEP\RTOS\MemAlloc\src\MemAlloc.o
+  0000000c 000020 00002fa8 00001878  4 _eti_init_info 	Linker Generated Symbol File 
   UNUSED   00000c ........ ........    @224 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
   UNUSED   00000c ........ ........    @308 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
   UNUSED   00000c ........ ........    @409 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
@@ -689,25 +689,25 @@ Memory map:
              .init_vle 000000f4 00000204 000004fc 000000f4 000000f4         14
     .ivor_branch_table 00001000 00000100 00000700 00001000 00001000         40
   .__exception_handlers 00001100 000000a8 00000800 00001100 00001100         53
-             .text_vle 00002000 00000f30 000008b0 00002000 00002000         62
-               .rodata 00002f30 0000004c 000017e0 00002f30 00002f30        257
-                .ctors 00002f7c 00000008 0000182c 00002f7c 00002f7c        261
-                .dtors 00002f84 00000008 00001834 00002f84 00002f84        262
-                 extab 00002f8c 00000008 0000183c 00002f8c 00002f8c        263
-            extabindex 00002f94 0000002c 00001844 00002f94 00002f94        264
+             .text_vle 00002000 00000f54 000008b0 00002000 00002000         62
+               .rodata 00002f58 0000002c 00001808 00002f58 00002f58        259
+                .ctors 00002f84 00000008 00001834 00002f84 00002f84        262
+                .dtors 00002f8c 00000008 0000183c 00002f8c 00002f8c        263
+                 extab 00002f94 00000008 00001844 00002f94 00002f94        264
+            extabindex 00002f9c 0000002c 0000184c 00002f9c 00002f9c        265
   .__uninitialized_intc_handlertable 40000000 00001340 00002000 00003000 00003000          0
-                 .data 40001340 0000001c 00002000 00003000 00003000        267
-                .sdata 40001360 00000014 00002020 00003020 00003020        269
+                 .data 40001340 0000001c 00002000 00003000 00003000        268
+                .sdata 40001360 00000014 00002020 00003020 00003020        270
                  .sbss 40001378 00000044 00002038 00003038 00003038          0
-               .sdata2 400013c0 00000010 00002038 00003038 00003038        270
+               .sdata2 400013c0 00000010 00002038 00003038 00003038        271
                 .sbss2 400013d0 00000000 00002048 00003048 00003048          0
                   .bss 400013d0 0000004c 00002048 00003048 00003048          0
-      .PPC.EMB.apuinfo 0000b668 00000000 0000d6b0 0000e6b0 0000e6b0          0
+      .PPC.EMB.apuinfo 0000b9e0 00000000 0000da30 0000ea28 0000ea28          0
          .debug_abbrev          00000197 00002048
-           .debug_info          000036dd 000021df
-           .debug_line          000051b3 000058bc
-            .debug_loc          00000a73 0000aa6f
-       .debug_pubnames          00000955 0000b4e2
+           .debug_info          000037b0 000021df
+           .debug_line          00005567 0000598f
+            .debug_loc          00000a28 0000aef6
+       .debug_pubnames          00000901 0000b91e
 
 
 Linker generated symbols:
@@ -733,22 +733,22 @@ _f___exception_handlers_rom 00001100
                   _e_text 00002000
               _f_text_vle 00002000
           _f_text_vle_rom 00002000
-              _e_text_vle 00002f30
-                _f_rodata 00002f30
-            _f_rodata_rom 00002f30
-                _e_rodata 00002f7c
-                 _f_ctors 00002f7c
-             _f_ctors_rom 00002f7c
-                 _e_ctors 00002f84
-                 _f_dtors 00002f84
-             _f_dtors_rom 00002f84
-                 _e_dtors 00002f8c
-                  _fextab 00002f8c
-              _fextab_rom 00002f8c
-                  _eextab 00002f94
-             _fextabindex 00002f94
-         _fextabindex_rom 00002f94
-             _eextabindex 00002fc0
+              _e_text_vle 00002f54
+                _f_rodata 00002f58
+            _f_rodata_rom 00002f58
+                _e_rodata 00002f84
+                 _f_ctors 00002f84
+             _f_ctors_rom 00002f84
+                 _e_ctors 00002f8c
+                 _f_dtors 00002f8c
+             _f_dtors_rom 00002f8c
+                 _e_dtors 00002f94
+                  _fextab 00002f94
+              _fextab_rom 00002f94
+                  _eextab 00002f9c
+             _fextabindex 00002f9c
+         _fextabindex_rom 00002f9c
+             _eextabindex 00002fc8
 _f___uninitialized_intc_handlertable 40000000
 _e___uninitialized_intc_handlertable 40001340
                   _f_data 40001340
@@ -770,7 +770,7 @@ _e___uninitialized_intc_handlertable 40001340
                _stack_end 40013000
                _heap_addr 40012000
                 _heap_end 40013000
-             _nbfunctions 00000051
+             _nbfunctions 0000004d
            SIZEOF_HEADERS 00000420
                _SDA_BASE_ 40009360
               _SDA2_BASE_ 400093c0

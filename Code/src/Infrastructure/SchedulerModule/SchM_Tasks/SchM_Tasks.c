@@ -98,6 +98,7 @@ void SchM_Task_1MS(void)
 {
 
 	static T_UBYTE rub_Init=1;
+	
 	if(rub_Init)
 	{
 		WL_Init();
@@ -122,10 +123,9 @@ void SchM_Task_1MS(void)
  **************************************************************/
  void SchM_Task_2MS(void)
 {
-
 	WL_StateManager_2MS();
 	WL_StateResponse_2MS();
-
+	
 }
 
 /*************************************************************

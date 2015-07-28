@@ -3,23 +3,22 @@
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*
-* C Source:         %template.c%
+* C Source:         Button.c
 * Instance:         RPL_1
-* %version:         2 %
-* %created_by:      uid02495 %
-* %date_created:    Fri Jan  9 14:38:03 2004 %
+* %version:         1 
+* %created_by:      Pedro Romero Vargas
+* %date_created:    Fri Jul 24  14:38:03 2015 
 *=============================================================================*/
-/* DESCRIPTION : C source template file                                       */
+/* DESCRIPTION : C source Button Driver                                       */
 /*============================================================================*/
-/* FUNCTION COMMENT : This file describes the C source template according to  */
-/* the new software platform                                                  */
+/* FUNCTION COMMENT : This file describes the C source from the Button driver */
 /*                                                                            */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*  REVISION |   DATE      |                               |      AUTHOR      */
 /*----------------------------------------------------------------------------*/
-/*  1.0      | DD/MM/YYYY  |                               | Mr. Template     */
+/*  1.0      | 24/07/2015  |                               | Pedro R. V.      */
 /* Integration under Continuus CM                                             */
 /*============================================================================*/
 
@@ -29,80 +28,18 @@
 #include "Button.h"
 #include "GPIO.h"
 
-/* Functions macros, constants, types and datas         */
-/* ---------------------------------------------------- */
-/* Functions macros */
-
-/*==================================================*/ 
-/* Definition of constants                          */
-/*==================================================*/ 
-/* BYTE constants */
 
 
-/* WORD constants */
-
-
-/* LONG and STRUCTURE constants */
-
-
-
-/*======================================================*/ 
-/* Definition of RAM variables                          */
-/*======================================================*/ 
-/* BYTE RAM variables */
-
-
-/* WORD RAM variables */
-
-
-/* LONG and STRUCTURE RAM variables */
-
-
-/*======================================================*/ 
-/* close variable declaration sections                  */
-/*======================================================*/ 
-
-/* Private defines */
-
-
-/* Private functions prototypes */
-/* ---------------------------- */
-
-
-
-/* Exported functions prototypes */
-/* ----------------------------- */
-
-/* Inline functions */
-/* ---------------- */
-/**************************************************************
- *  Name                 : inline_func	2
- *  Description          :
- *  Parameters           :  [Input, Output, Input / output]
- *  Return               :
- *  Critical/explanation :    [yes / No]
- **************************************************************/
-
-
-/* Private functions */
-/* ----------------- */
-/**************************************************************
- *  Name                 : private_func
- *  Description          :
- *  Parameters           :  [Input, Output, Input / output]
- *  Return               :
- *  Critical/explanation :    [yes / No]
- **************************************************************/
 
 
 /* Exported functions */
 /* ------------------ */
 /**************************************************************
- *  Name                 :	export_func
- *  Description          :
- *  Parameters           :  [Input, Output, Input / output]
- *  Return               :
- *  Critical/explanation :    [yes / No]
+ *  Name                 :	Button_Init
+ *  Description          : Initialize a Button Type
+ *  Parameters           : S_BUTTON_TYPE *  , T_UBYTE 
+ *  Return               : void
+ *  Critical/explanation : No
  **************************************************************/
 
 void Button_Init( S_BUTTON_TYPE * lps_Button , T_UBYTE lub_ID )
@@ -113,6 +50,14 @@ void Button_Init( S_BUTTON_TYPE * lps_Button , T_UBYTE lub_ID )
 }
 
 
+
+/**************************************************************
+ *  Name                 :	Button_GetStatus
+ *  Description          :	Get the Statuus of a button
+ *  Parameters           :  S_BUTTON_TYPE* 
+ *  Return               :	T_UBYTE
+ *  Critical/explanation :	No
+ **************************************************************/
 
 T_UBYTE Button_GetStatus(S_BUTTON_TYPE* lps_Button)
 {

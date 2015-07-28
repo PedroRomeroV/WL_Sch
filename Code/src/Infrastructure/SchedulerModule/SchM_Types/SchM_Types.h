@@ -46,8 +46,8 @@ typedef T_UBYTE SchedulerTaskOffsetType;
 /* Masks*/
 typedef enum
 {
-	SCHM_MASK_1MS	= 3,
-	SCHM_MASK_2MS	= 7,
+	SCHM_MASK_1MS	= 1,
+	SCHM_MASK_2MS	= 3,
 	SCHM_MASK_4MS	= 15,
 	SCHM_MASK_8MS	= 31,
 	SCHM_MASK_16MS	= 63,
